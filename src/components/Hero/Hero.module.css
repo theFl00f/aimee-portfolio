@@ -1,0 +1,29 @@
+.hero {
+  padding: 0 var(--page-padding);
+  margin-top: 144px;
+  margin-bottom: 100px;
+}
+
+.h1 {
+  display: flex;
+  flex-direction: column;
+  font-size: 46px;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.name { font-weight: 700; }
+.title { font-weight: 500; }
+
+.tagline {
+  font-size: 26px;
+  font-weight: 400;
+  max-width: 679px;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .hero { margin-top: 64px; }
+  .h1 { font-size: 32px; }
+  .tagline { font-size: 18px; }
+}

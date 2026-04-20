@@ -1,0 +1,38 @@
+.work {
+  padding: 0 var(--page-padding);
+  margin-bottom: 120px;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rowTop {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rowBottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .rowTop,
+  .rowBottom {
+    grid-template-columns: 1fr;
+  }
+
+  .stack { flex-direction: row; }
+}
