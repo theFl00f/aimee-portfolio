@@ -1,0 +1,11 @@
+.card {
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-placeholder);
+  overflow: hidden;
+}
+
+.wideLandscape      { aspect-ratio: 587 / 189; }
+.square             { aspect-ratio: 295 / 189; }
+.portrait           { aspect-ratio: 288 / 386; }
+.wideLandscapeTall  { aspect-ratio: 601 / 387; }
