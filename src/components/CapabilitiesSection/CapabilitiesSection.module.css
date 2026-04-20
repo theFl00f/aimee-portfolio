@@ -1,0 +1,36 @@
+.capabilities {
+  padding: 0 var(--page-padding);
+  margin-bottom: 120px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+}
+
+.heading {
+  font-size: 40px;
+  font-weight: 500;
+  margin-bottom: 40px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  list-style: disc;
+  padding-left: 1.25em;
+}
+
+.item {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; }
+  .heading { font-size: 28px; }
+  .item { font-size: 18px; }
+}
