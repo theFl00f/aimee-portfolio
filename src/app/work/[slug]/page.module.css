@@ -1,0 +1,105 @@
+/* src/app/work/[slug]/page.module.css */
+
+.page {
+  padding-bottom: 120px;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 6;
+  overflow: hidden;
+  background: var(--color-placeholder);
+}
+
+.heroImage {
+  object-fit: cover;
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  padding: 64px var(--page-padding) 0;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.categories {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.overviewBlock {
+  padding-top: 4px;
+}
+
+.sectionLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  opacity: 0.4;
+}
+
+.body {
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 48px var(--page-padding) 0;
+}
+
+.galleryItem {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--color-placeholder);
+}
+
+.galleryImage {
+  object-fit: cover;
+}
+
+.section {
+  padding: 64px var(--page-padding) 0;
+  max-width: 680px;
+}
+
+@media (max-width: 768px) {
+  .intro {
+    grid-template-columns: 1fr;
+    padding: 40px 24px 0;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    padding: 40px 24px 0;
+  }
+
+  .section {
+    padding: 48px 24px 0;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+}
