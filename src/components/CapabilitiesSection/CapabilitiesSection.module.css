@@ -10,9 +10,9 @@
 }
 
 .heading {
-  font-size: 40px;
+  font-size: 32px;
   font-weight: 500;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 
 .list {
@@ -24,13 +24,13 @@
 }
 
 .item {
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 1.4;
 }
 
 @media (max-width: 768px) {
   .grid { grid-template-columns: 1fr; }
-  .heading { font-size: 28px; }
-  .item { font-size: 18px; }
+  .heading { font-size: 24px; }
+  .item { font-size: 14px; }
 }
