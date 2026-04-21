@@ -23,7 +23,6 @@
 }
 
 @media (max-width: 768px) {
-  .hero { margin-top: 64px; }
   .h1 { font-size: 32px; }
   .tagline { font-size: 18px; }
 }
