@@ -4,9 +4,9 @@
 }
 
 .heading {
-  font-size: 40px;
+  font-size: 28px;
   font-weight: 500;
-  margin-bottom: 80px;
+  margin-bottom: 48px;
 }
 
 .grid {
@@ -20,11 +20,11 @@
 .card:nth-child(5) { grid-column: 2; grid-row: 2; }
 
 .title {
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 500;
   text-transform: uppercase;
   line-height: 1.25;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .iconRow {
@@ -35,13 +35,13 @@
 }
 
 .iconRow img {
-  width: 48px;
-  height: 48px;
+  width: 32px;
+  height: 32px;
   object-fit: contain;
 }
 
 .description {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   line-height: 1.5;
   max-width: 300px;
@@ -56,5 +56,5 @@
     grid-row: auto;
   }
 
-  .heading { font-size: 28px; }
+  .heading { font-size: 22px; }
 }

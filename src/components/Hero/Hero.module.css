@@ -1,6 +1,6 @@
 .hero {
   padding: 0 var(--page-padding);
-  margin-top: 144px;
+  margin-top: 64px;
   margin-bottom: 100px;
 }
 
@@ -16,14 +16,13 @@
 .title { font-weight: 500; }
 
 .tagline {
-  font-size: 26px;
+  font-size: 18px;
   font-weight: 400;
   max-width: 679px;
   line-height: 1.4;
 }
 
 @media (max-width: 768px) {
-  .hero { margin-top: 64px; }
   .h1 { font-size: 32px; }
   .tagline { font-size: 18px; }
 }
