@@ -21,6 +21,7 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
           src={item.heroImage}
           alt={item.title}
           fill
+          sizes="100vw"
           className={styles.heroImg}
           priority
         />
@@ -43,7 +44,7 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
         <div className={styles.gallery}>
           {item.galleryImages.map((src) => (
             <div key={src} className={styles.galleryItem}>
-              <Image src={src} alt="" fill className={styles.galleryImg} />
+              <Image src={src} alt={`${item.title} gallery`} fill sizes="(max-width: 768px) 100vw, 50vw" className={styles.galleryImg} />
             </div>
           ))}
         </div>
@@ -56,7 +57,7 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
             <Image
               key={src}
               src={src}
-              alt=""
+              alt={`${item.title} — project image`}
               width={1200}
               height={630}
               className={styles.wideImg}
@@ -70,8 +71,9 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
         <div className={styles.sectionImageWrap}>
           <Image
             src={item.outcomeImage}
-            alt=""
+            alt={`${item.title} — outcome`}
             fill
+            sizes="(max-width: 768px) 100vw, 50vw"
             className={styles.sectionImg}
           />
         </div>
@@ -86,8 +88,9 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
         <div className={styles.sectionImageWrap}>
           <Image
             src={item.reflectionsImage}
-            alt=""
+            alt={`${item.title} — reflections`}
             fill
+            sizes="(max-width: 768px) 100vw, 50vw"
             className={styles.sectionImg}
           />
         </div>
