@@ -1,11 +1,49 @@
+/* src/components/WorkCard/WorkCard.module.css */
+
 .card {
   border: 1px solid var(--color-border);
   border-radius: 6px;
   background: var(--color-placeholder);
   overflow: hidden;
+  position: relative;
+  display: block;
+  text-decoration: none;
 }
 
 .wideLandscape      { aspect-ratio: 587 / 189; }
 .square             { aspect-ratio: 295 / 189; }
 .portrait           { aspect-ratio: 288 / 386; }
 .wideLandscapeTall  { aspect-ratio: 601 / 387; }
+
+.cover {
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.card:hover .cover {
+  transform: scale(1.04);
+}
+
+.label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px 16px 16px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 100%);
+  color: #ffffff;
+}
+
+.cardCategory {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin-bottom: 4px;
+}
+
+.cardTitle {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+}
