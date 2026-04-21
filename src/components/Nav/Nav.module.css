@@ -7,6 +7,13 @@
   position: relative;
 }
 
+.logo {
+  display: flex;
+  border: none;
+  outline: none;
+  line-height: 0;
+}
+
 .logoImg {
   height: 52px;
   width: auto;
@@ -15,11 +22,11 @@
 
 .nav {
   display: flex;
-  gap: 56px;
+  gap: 32px;
 }
 
 .navLink {
-  font-size: 24px;
+  font-size: 14px;
   font-weight: 500;
 }
 
@@ -63,6 +70,6 @@
 
   .navLink {
     padding: 12px var(--page-padding);
-    font-size: 20px;
+    font-size: 16px;
   }
 }
