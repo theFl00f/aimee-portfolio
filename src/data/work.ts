@@ -12,6 +12,9 @@ export interface WorkItem {
   coverImage: string;
   heroImage: string;
   galleryImages: string[];
+  wideImages?: string[];
+  outcomeImage: string;
+  reflectionsImage: string;
   variant: CardVariant;
 }
 
@@ -29,12 +32,15 @@ export const WORK_ITEMS: WorkItem[] = [
     coverImage: '/work/marginalia/storefront.png',
     heroImage: '/work/marginalia/storefront.png',
     galleryImages: [
-      '/work/marginalia/brand-collateral.png',
       '/work/marginalia/logo-crest.png',
       '/work/marginalia/logo-monk-cat.png',
-      '/work/marginalia/lifestyle.png',
+    ],
+    wideImages: [
+      '/work/marginalia/brand-collateral.png',
       '/work/marginalia/moodboard.png',
     ],
+    outcomeImage: '/work/marginalia/lifestyle.png',
+    reflectionsImage: '/work/marginalia/storefront.png',
     variant: 'wide-landscape',
   },
   {
@@ -49,12 +55,14 @@ export const WORK_ITEMS: WorkItem[] = [
       'This project became an experiment in human–AI collaboration. From brainstorming editorial concepts to developing prompts, iterating visuals, and shaping the final layouts, AI acted as a creative partner. Working with limited external feedback, I relied on this interaction to simulate the push-and-pull of a design process — testing ideas, refining direction, and challenging my own instincts. The experience highlighted both the potential of AI as a generative tool and the importance of art direction in guiding it toward a coherent, production-ready outcome.',
     coverImage: '/work/mycelium/cover-stack.png',
     heroImage: '/work/mycelium/mycelium-hero.png',
-    galleryImages: [
+    galleryImages: [],
+    wideImages: [
       '/work/mycelium/editorial-portrait.png',
       '/work/mycelium/magazine-spread.png',
-      '/work/mycelium/feature-spread.png',
       '/work/mycelium/moodboard.png',
     ],
+    outcomeImage: '/work/mycelium/cover-stack.png',
+    reflectionsImage: '/work/mycelium/feature-spread.png',
     variant: 'square',
   },
   {
@@ -69,12 +77,14 @@ export const WORK_ITEMS: WorkItem[] = [
       "Adapting SAP's evolving brand to the design of partner awards highlighted the importance of clarity and restraint in visual storytelling. By moving away from decorative symbolism and leaning into transparency, depth, and the distinctive SAP blue, I was able to create objects that felt both more authentic and more aligned with the company's refreshed identity. This project reminded me how design choices, even subtle ones, shape not just aesthetics but also how recognition is experienced and valued.",
     coverImage: '/work/sap-gpo-hall-of-fame/celebration-wide.png',
     heroImage: '/work/sap-gpo-hall-of-fame/celebration-wide.png',
-    galleryImages: [
+    galleryImages: [],
+    wideImages: [
       '/work/sap-gpo-hall-of-fame/event-stage.png',
-      '/work/sap-gpo-hall-of-fame/award-comparison.png',
       '/work/sap-gpo-hall-of-fame/brand-system.png',
       '/work/sap-gpo-hall-of-fame/celebration.png',
     ],
+    outcomeImage: '/work/sap-gpo-hall-of-fame/award-comparison.png',
+    reflectionsImage: '/work/sap-gpo-hall-of-fame/celebration-wide.png',
     variant: 'square',
   },
 ];

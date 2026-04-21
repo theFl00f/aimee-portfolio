@@ -33,6 +33,4 @@
   .rowBottom {
     grid-template-columns: 1fr;
   }
-
-  .stack { flex-direction: row; }
 }

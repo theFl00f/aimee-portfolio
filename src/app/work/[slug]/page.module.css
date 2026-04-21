@@ -1,48 +1,146 @@
 /* src/app/work/[slug]/page.module.css */
 
 .page {
-  padding-bottom: 120px;
+  padding-bottom: 0;
 }
+
+/* ── Hero ─────────────────────────────────────────── */
 
 .hero {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 6;
+  aspect-ratio: 1200 / 196;
   overflow: hidden;
   background: var(--color-placeholder);
 }
 
-.heroImage {
+.heroImg {
   object-fit: cover;
 }
 
+/* ── Intro (black bg) ─────────────────────────────── */
+
 .intro {
   display: grid;
-  grid-template-columns: 2fr 3fr;
+  grid-template-columns: 1fr 1fr;
   gap: 48px;
-  padding: 64px var(--page-padding) 0;
+  padding: 48px var(--page-padding);
+  background: #000000;
+  align-items: start;
 }
 
-.meta {
+.introMeta {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
 .title {
   font-size: 32px;
   font-weight: 700;
   line-height: 1.15;
+  color: #ffffff;
 }
 
 .categories {
-  font-size: 12px;
-  letter-spacing: 0.06em;
+  font-size: 11px;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+  color: #ffffff;
   opacity: 0.5;
+  line-height: 1.5;
 }
 
-.overviewBlock {
+.introOverview {
+  padding-top: 4px;
+}
+
+.introLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0.4;
+  margin-bottom: 12px;
+}
+
+.introBody {
+  font-size: 16px;
+  line-height: 1.65;
+  color: #ffffff;
+}
+
+/* ── Gallery 2-col (Marginalia logo panels) ─────── */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 12px var(--page-padding) 0;
+}
+
+.galleryItem {
+  position: relative;
+  aspect-ratio: 5 / 3;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--color-placeholder);
+}
+
+.galleryImg {
+  object-fit: cover;
+}
+
+/* ── Gallery wide (full content-width, natural ratio) */
+
+.galleryWide {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px var(--page-padding) 0;
+}
+
+.wideImg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+
+/* ── Shared section (Outcome + Reflections) ─────── */
+
+.outcomeSection,
+.reflectionsSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  padding: 48px var(--page-padding);
+  align-items: start;
+}
+
+.outcomeSection {
+  background: rgba(210, 206, 199, 0.62);
+  margin-top: 64px;
+}
+
+.reflectionsSection {
+  background: rgba(210, 206, 199, 0.48);
+}
+
+.sectionImageWrap {
+  position: relative;
+  aspect-ratio: 5 / 3;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--color-placeholder);
+}
+
+.sectionImg {
+  object-fit: cover;
+}
+
+.sectionText {
   padding-top: 4px;
 }
 
@@ -51,55 +149,49 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  margin-bottom: 16px;
   opacity: 0.4;
+  margin-bottom: 12px;
 }
 
-.body {
+.sectionBody {
   font-size: 16px;
   line-height: 1.65;
 }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  padding: 48px var(--page-padding) 0;
-}
-
-.galleryItem {
-  position: relative;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  border-radius: 4px;
-  background: var(--color-placeholder);
-}
-
-.galleryImage {
-  object-fit: cover;
-}
-
-.section {
-  padding: 64px var(--page-padding) 0;
-  max-width: 680px;
-}
+/* ── Mobile ─────────────────────────────────────── */
 
 @media (max-width: 768px) {
+  .hero {
+    aspect-ratio: 3 / 1;
+  }
+
   .intro {
     grid-template-columns: 1fr;
-    padding: 40px 24px 0;
-  }
-
-  .gallery {
-    grid-template-columns: 1fr;
-    padding: 40px 24px 0;
-  }
-
-  .section {
-    padding: 48px 24px 0;
+    gap: 32px;
+    padding: 40px var(--page-padding);
   }
 
   .title {
     font-size: 24px;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    padding: 12px var(--page-padding) 0;
+  }
+
+  .galleryWide {
+    padding: 12px var(--page-padding) 0;
+  }
+
+  .outcomeSection,
+  .reflectionsSection {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 40px var(--page-padding);
+  }
+
+  .outcomeSection {
+    margin-top: 40px;
   }
 }
