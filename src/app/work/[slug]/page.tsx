@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { WORK_ITEMS } from '@/data/work';
 import styles from './page.module.css';
+import PaletteSection from './PaletteSection';
 
 export function generateStaticParams() {
   return WORK_ITEMS.map((item) => ({ slug: item.slug }));
@@ -49,6 +50,9 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
           ))}
         </div>
       )}
+
+      {/* Palette — Marginalia only */}
+      {params.slug === 'marginalia' && <PaletteSection />}
 
       {/* Gallery wide — full content-width, natural aspect ratio */}
       {item.wideImages && item.wideImages.length > 0 && (

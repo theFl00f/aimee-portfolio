@@ -1,0 +1,55 @@
+/* PaletteSection.module.css */
+
+.paletteSection {
+  padding: 12px var(--page-padding) 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.swatch {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.label {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  opacity: 0.5;
+}
+
+/* LG: break out of margins */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .paletteSection {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .swatch {
+    border-radius: 0;
+  }
+}
+
+/* SM: break out of margins */
+@media (max-width: 479px) {
+  .paletteSection {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .swatch {
+    border-radius: 0;
+  }
+}

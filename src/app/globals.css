@@ -8,8 +8,12 @@
   --nav-height: 82px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
   :root { --page-padding: 24px; }
+}
+
+@media (max-width: 479px) {
+  :root { --page-padding: 16px; }
 }
 
 /* Reset */

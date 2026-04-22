@@ -116,7 +116,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 48px;
   padding: 48px var(--page-padding);
-  align-items: start;
+  align-items: stretch;
 }
 
 .outcomeSection {
@@ -130,7 +130,8 @@
 
 .sectionImageWrap {
   position: relative;
-  aspect-ratio: 5 / 3;
+  height: 100%;
+  min-height: 280px;
   overflow: hidden;
   border-radius: 4px;
   background: var(--color-placeholder);
@@ -193,5 +194,41 @@
 
   .outcomeSection {
     margin-top: 40px;
+  }
+}
+
+/* ── XL: constrain full-bleed sections within wrapper ── */
+
+@media (min-width: 1280px) {
+  .hero {
+    margin: 0 var(--page-padding);
+    width: calc(100% - 2 * var(--page-padding));
+    border-radius: 4px;
+  }
+}
+
+/* ── LG: full-width images inside wrapper break out ── */
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .galleryWide {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .wideImg {
+    border-radius: 0;
+  }
+}
+
+/* ── SM: full-width images break out, text padding shrinks ── */
+
+@media (max-width: 479px) {
+  .galleryWide {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .wideImg {
+    border-radius: 0;
   }
 }
