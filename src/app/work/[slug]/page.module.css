@@ -205,3 +205,29 @@
     border-radius: 4px;
   }
 }
+
+/* ── LG: full-width images inside wrapper break out ── */
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .galleryWide {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .wideImg {
+    border-radius: 0;
+  }
+}
+
+/* ── SM: full-width images break out, text padding shrinks ── */
+
+@media (max-width: 479px) {
+  .galleryWide {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .wideImg {
+    border-radius: 0;
+  }
+}
