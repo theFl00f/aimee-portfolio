@@ -195,3 +195,13 @@
     margin-top: 40px;
   }
 }
+
+/* ── XL: constrain full-bleed sections within wrapper ── */
+
+@media (min-width: 1280px) {
+  .hero {
+    margin: 0 var(--page-padding);
+    width: calc(100% - 2 * var(--page-padding));
+    border-radius: 4px;
+  }
+}
