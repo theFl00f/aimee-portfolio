@@ -19,7 +19,6 @@
 .swatch {
   aspect-ratio: 1 / 1;
   width: 100%;
-  border-radius: 4px;
 }
 
 .label {
@@ -30,26 +29,3 @@
   opacity: 0.5;
 }
 
-/* LG: break out of margins */
-@media (min-width: 1024px) and (max-width: 1279px) {
-  .paletteSection {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .swatch {
-    border-radius: 0;
-  }
-}
-
-/* SM: break out of margins */
-@media (max-width: 479px) {
-  .paletteSection {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .swatch {
-    border-radius: 0;
-  }
-}

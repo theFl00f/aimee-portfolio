@@ -22,7 +22,7 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
           src={item.heroImage}
           alt={item.title}
           fill
-          sizes="100vw"
+          sizes="(max-width: 479px) calc(100vw - 32px), (max-width: 1023px) calc(100vw - 48px), calc(100vw - 240px)"
           className={styles.heroImg}
           placeholder="blur"
           priority
@@ -80,11 +80,20 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
           <div className={styles.sectionImageWrap}>
             <Picture
               src={item.outcomeImage}
+              alt=""
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className={styles.sectionImgBlur}
+              objectFit="cover"
+            />
+            <Picture
+              src={item.outcomeImage}
               alt={`${item.title} — outcome`}
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className={styles.sectionImg}
               placeholder="blur"
+              objectFit="contain"
             />
           </div>
           <div className={styles.sectionText}>
@@ -100,11 +109,20 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
           <div className={styles.sectionImageWrap}>
             <Picture
               src={item.reflectionsImage}
+              alt=""
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className={styles.sectionImgBlur}
+              objectFit="cover"
+            />
+            <Picture
+              src={item.reflectionsImage}
               alt={`${item.title} — reflections`}
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className={styles.sectionImg}
               placeholder="blur"
+              objectFit="contain"
             />
           </div>
           <div className={styles.sectionText}>
