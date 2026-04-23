@@ -30,7 +30,7 @@ export const WORK_ITEMS: WorkItem[] = [
     reflections:
       'This exploration showed me the potential of marginalia not just as design inspiration but as a storytelling framework. While the initial system is anchored in Monk Cat, I see opportunity to evolve the world by introducing additional characters and weaving them into a narrative that extends across platforms. In the future, I would like to expand the Marginalia brand into a full character set with layered storylines, opening the door for applications beyond print and digital — potentially even into animation, merchandise, or a serialized TV adaptation. This project has underscored the strength of building brands with both cultural depth and narrative elasticity.',
     coverImage: '/work/marginalia/storefront.png',
-    heroImage: '/work/marginalia/storefront.png',
+    heroImage: '/work/marginalia/storefront-wide.png',
     galleryImages: [
       '/work/marginalia/logo-crest.png',
       '/work/marginalia/logo-monk-cat.png',
@@ -57,12 +57,12 @@ export const WORK_ITEMS: WorkItem[] = [
     heroImage: '/work/mycelium/mycelium-hero.png',
     galleryImages: [],
     wideImages: [
-      '/work/mycelium/editorial-portrait.png',
       '/work/mycelium/magazine-spread.png',
+      '/work/mycelium/feature-spread.png',
       '/work/mycelium/moodboard.png',
     ],
     outcomeImage: '/work/mycelium/cover-stack.png',
-    reflectionsImage: '/work/mycelium/feature-spread.png',
+    reflectionsImage: '/work/mycelium/editorial-portrait.png',
     variant: 'square',
   },
   {
@@ -79,12 +79,12 @@ export const WORK_ITEMS: WorkItem[] = [
     heroImage: '/work/sap-gpo-hall-of-fame/celebration-wide.png',
     galleryImages: [],
     wideImages: [
-      '/work/sap-gpo-hall-of-fame/event-stage.png',
+      '/work/sap-gpo-hall-of-fame/award-comparison.png',
+      '/work/sap-gpo-hall-of-fame/hall-of-fame.png',
       '/work/sap-gpo-hall-of-fame/brand-system.png',
-      '/work/sap-gpo-hall-of-fame/celebration.png',
     ],
-    outcomeImage: '/work/sap-gpo-hall-of-fame/award-comparison.png',
-    reflectionsImage: '/work/sap-gpo-hall-of-fame/celebration-wide.png',
+    outcomeImage: '/work/sap-gpo-hall-of-fame/event-stage.png',
+    reflectionsImage: '/work/sap-gpo-hall-of-fame/celebration.png',
     variant: 'square',
   },
 ];
