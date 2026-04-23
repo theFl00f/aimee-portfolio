@@ -14,6 +14,10 @@
 .portrait           { aspect-ratio: 288 / 386; }
 .wideLandscapeTall  { aspect-ratio: 601 / 387; }
 
+@media (max-width: 768px) {
+  .wideLandscape { aspect-ratio: 295 / 189; }
+}
+
 .cover {
   object-fit: cover;
   transition: transform 0.35s ease;
