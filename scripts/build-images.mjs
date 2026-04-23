@@ -48,23 +48,28 @@ async function shouldSkip(src, dst) {
   }
 }
 
-function encodeAvif(pngBuffer, outPath) {
-  return new Promise((resolve, reject) => {
-    const proc = spawn('avifenc', [
-      '-q', String(AVIF_QUALITY),
-      '-s', String(AVIF_SPEED),
-      '--stdin', '--input-format', 'png',
-      outPath,
-    ]);
-    let stderr = '';
-    proc.stderr.on('data', (c) => { stderr += c.toString(); });
-    proc.on('error', reject);
-    proc.on('close', (code) => {
-      if (code === 0) resolve();
-      else reject(new Error(`avifenc exited ${code}: ${stderr}`));
+async function encodeAvif(pngBuffer, outPath) {
+  const tmpPng = outPath + '.tmp.png';
+  await fs.writeFile(tmpPng, pngBuffer);
+  try {
+    await new Promise((resolve, reject) => {
+      const proc = spawn('avifenc', [
+        '-q', String(AVIF_QUALITY),
+        '-s', String(AVIF_SPEED),
+        tmpPng,
+        outPath,
+      ]);
+      let stderr = '';
+      proc.stderr.on('data', (c) => { stderr += c.toString(); });
+      proc.on('error', reject);
+      proc.on('close', (code) => {
+        if (code === 0) resolve();
+        else reject(new Error(`avifenc exited ${code}: ${stderr}`));
+      });
     });
-    proc.stdin.end(pngBuffer);
-  });
+  } finally {
+    await fs.unlink(tmpPng).catch(() => {});
+  }
 }
 
 async function ensureDir(p) {
