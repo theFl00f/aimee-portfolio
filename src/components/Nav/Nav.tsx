@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Picture from '@/components/Picture';
 import styles from './Nav.module.css';
 
 export default function Nav() {
@@ -9,7 +10,7 @@ export default function Nav() {
   return (
     <header className={styles.header}>
       <a href="/" className={styles.logo} aria-label="Aimee Marcos home">
-        <img src="/logo/am-logo.png" alt="AM logo" className={styles.logoImg} />
+        <Picture src="/logo/am-logo.png" alt="AM logo" width={500} height={500} className={styles.logoImg} />
       </a>
       <button
         className={styles.toggle}

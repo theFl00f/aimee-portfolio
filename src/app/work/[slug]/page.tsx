@@ -1,6 +1,6 @@
 // src/app/work/[slug]/page.tsx
 import { notFound } from 'next/navigation';
-import Image from 'next/image';
+import Picture from '@/components/Picture';
 import { WORK_ITEMS } from '@/data/work';
 import styles from './page.module.css';
 import PaletteSection from './PaletteSection';
@@ -18,12 +18,13 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
 
       {/* Hero — full content-width, short */}
       <div className={styles.hero}>
-        <Image
+        <Picture
           src={item.heroImage}
           alt={item.title}
           fill
           sizes="100vw"
           className={styles.heroImg}
+          placeholder="blur"
           priority
         />
       </div>
@@ -47,7 +48,7 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
         <div className={styles.gallery}>
           {item.galleryImages.map((src) => (
             <div key={src} className={styles.galleryItem}>
-              <Image src={src} alt={`${item.title} gallery`} fill sizes="(max-width: 768px) 100vw, 50vw" className={styles.galleryImg} />
+              <Picture src={src} alt={`${item.title} gallery`} fill placeholder="blur" sizes="(max-width: 768px) 100vw, 50vw" className={styles.galleryImg} />
             </div>
           ))}
         </div>
@@ -60,12 +61,13 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
       {item.wideImages && item.wideImages.length > 0 && (
         <div className={styles.galleryWide}>
           {item.wideImages.map((src) => (
-            <Image
+            <Picture
               key={src}
               src={src}
               alt={`${item.title} — project image`}
               width={1200}
               height={630}
+              placeholder="blur"
               className={styles.wideImg}
             />
           ))}
@@ -76,12 +78,13 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
       <section className={styles.outcomeSection}>
         <div className={styles.outcomeSectionInner}>
           <div className={styles.sectionImageWrap}>
-            <Image
+            <Picture
               src={item.outcomeImage}
               alt={`${item.title} — outcome`}
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className={styles.sectionImg}
+              placeholder="blur"
             />
           </div>
           <div className={styles.sectionText}>
@@ -95,12 +98,13 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
       <section className={styles.reflectionsSection}>
         <div className={styles.reflectionsSectionInner}>
           <div className={styles.sectionImageWrap}>
-            <Image
+            <Picture
               src={item.reflectionsImage}
               alt={`${item.title} — reflections`}
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className={styles.sectionImg}
+              placeholder="blur"
             />
           </div>
           <div className={styles.sectionText}>

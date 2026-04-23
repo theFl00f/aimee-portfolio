@@ -1,3 +1,4 @@
+import Picture from '@/components/Picture';
 import styles from './ToolboxSection.module.css';
 
 const CARDS = [
@@ -64,8 +65,7 @@ export default function ToolboxSection() {
             </h3>
             <div className={styles.iconRow}>
               {card.icons.map((icon) => (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img key={icon.alt} src={icon.src} alt={icon.alt} width={48} height={48} />
+                <Picture key={icon.alt} src={icon.src} alt={icon.alt} width={48} height={48} />
               ))}
             </div>
             <p className={styles.description}>{card.description}</p>
