@@ -30,13 +30,15 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
 
       {/* Intro — black background, 2-col, white text */}
       <div className={styles.intro}>
-        <div className={styles.introMeta}>
-          <h1 className={styles.title}>{item.title}</h1>
-          <p className={styles.categories}>{item.categories}</p>
-        </div>
-        <div className={styles.introOverview}>
-          <h2 className={styles.introLabel}>Project Overview</h2>
-          <p className={styles.introBody}>{item.overview}</p>
+        <div className={styles.introInner}>
+          <div className={styles.introMeta}>
+            <h1 className={styles.title}>{item.title}</h1>
+            <p className={styles.categories}>{item.categories}</p>
+          </div>
+          <div className={styles.introOverview}>
+            <h2 className={styles.introLabel}>Project Overview</h2>
+            <p className={styles.introBody}>{item.overview}</p>
+          </div>
         </div>
       </div>
 
@@ -72,35 +74,39 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
 
       {/* Outcome — warm beige, image left + text right */}
       <section className={styles.outcomeSection}>
-        <div className={styles.sectionImageWrap}>
-          <Image
-            src={item.outcomeImage}
-            alt={`${item.title} — outcome`}
-            fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className={styles.sectionImg}
-          />
-        </div>
-        <div className={styles.sectionText}>
-          <h2 className={styles.sectionLabel}>Outcome</h2>
-          <p className={styles.sectionBody}>{item.outcome}</p>
+        <div className={styles.outcomeSectionInner}>
+          <div className={styles.sectionImageWrap}>
+            <Image
+              src={item.outcomeImage}
+              alt={`${item.title} — outcome`}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className={styles.sectionImg}
+            />
+          </div>
+          <div className={styles.sectionText}>
+            <h2 className={styles.sectionLabel}>Outcome</h2>
+            <p className={styles.sectionBody}>{item.outcome}</p>
+          </div>
         </div>
       </section>
 
       {/* Reflections — lighter beige, image left + text right */}
       <section className={styles.reflectionsSection}>
-        <div className={styles.sectionImageWrap}>
-          <Image
-            src={item.reflectionsImage}
-            alt={`${item.title} — reflections`}
-            fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className={styles.sectionImg}
-          />
-        </div>
-        <div className={styles.sectionText}>
-          <h2 className={styles.sectionLabel}>Reflections</h2>
-          <p className={styles.sectionBody}>{item.reflections}</p>
+        <div className={styles.reflectionsSectionInner}>
+          <div className={styles.sectionImageWrap}>
+            <Image
+              src={item.reflectionsImage}
+              alt={`${item.title} — reflections`}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className={styles.sectionImg}
+            />
+          </div>
+          <div className={styles.sectionText}>
+            <h2 className={styles.sectionLabel}>Reflections</h2>
+            <p className={styles.sectionBody}>{item.reflections}</p>
+          </div>
         </div>
       </section>
 

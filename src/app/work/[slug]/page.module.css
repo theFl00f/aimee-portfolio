@@ -20,12 +20,13 @@
 
 /* ── Intro (black bg) ─────────────────────────────── */
 
-.intro {
+.introInner {
+  margin: 0 var(--page-padding);
+  padding: 48px;
+  background: #000000;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
-  padding: 48px var(--page-padding);
-  background: #000000;
   align-items: start;
 }
 
@@ -110,21 +111,25 @@
 
 /* ── Shared section (Outcome + Reflections) ─────── */
 
-.outcomeSection,
-.reflectionsSection {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  padding: 48px var(--page-padding);
-  align-items: stretch;
-}
-
 .outcomeSection {
-  background: rgba(210, 206, 199, 0.62);
   margin-top: 64px;
 }
 
-.reflectionsSection {
+.outcomeSectionInner,
+.reflectionsSectionInner {
+  margin: 0 var(--page-padding);
+  padding: 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: stretch;
+}
+
+.outcomeSectionInner {
+  background: rgba(210, 206, 199, 0.62);
+}
+
+.reflectionsSectionInner {
   background: rgba(210, 206, 199, 0.48);
 }
 
@@ -166,10 +171,10 @@
     aspect-ratio: 3 / 1;
   }
 
-  .intro {
+  .introInner {
     grid-template-columns: 1fr;
     gap: 32px;
-    padding: 40px var(--page-padding);
+    padding: 40px 24px;
   }
 
   .title {
@@ -185,11 +190,11 @@
     padding: 12px var(--page-padding) 0;
   }
 
-  .outcomeSection,
-  .reflectionsSection {
+  .outcomeSectionInner,
+  .reflectionsSectionInner {
     grid-template-columns: 1fr;
     gap: 24px;
-    padding: 40px var(--page-padding);
+    padding: 40px 24px;
   }
 
   .outcomeSection {
