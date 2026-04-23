@@ -1,6 +1,6 @@
 // src/components/WorkCard/WorkCard.tsx
 import Link from 'next/link';
-import Image from 'next/image';
+import Picture from '@/components/Picture';
 import { WorkItem, CardVariant } from '@/data/work';
 import styles from './WorkCard.module.css';
 
@@ -25,10 +25,11 @@ export default function WorkCard({ variant, item }: WorkCardProps) {
 
   return (
     <Link href={`/work/${item.slug}`} className={cardClass}>
-      <Image
+      <Picture
         src={item.coverImage}
         alt={item.title}
         fill
+        placeholder="blur"
         className={styles.cover}
         sizes="(max-width: 768px) 100vw, 50vw"
       />

@@ -13,6 +13,9 @@
 /.next/
 /out/
 
+# generated image variants (AVIF + WebP) from scripts/build-images.mjs
+/public/_img/
+
 # production
 /build
 
