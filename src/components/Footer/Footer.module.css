@@ -1,0 +1,30 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px var(--page-padding);
+  border-top: 1px solid var(--color-border);
+  margin-top: 64px;
+}
+
+.credit {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.social {
+  display: inline-flex;
+  color: inherit;
+}
+
+.social:hover { opacity: 0.6; }
+
+.social:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 4px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
