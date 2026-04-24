@@ -1,3 +1,5 @@
+'use client';
+import { motion } from 'framer-motion';
 import styles from './CapabilitiesSection.module.css';
 
 const CAPABILITIES = [
@@ -24,27 +26,47 @@ function renderLines(text: string) {
   ));
 }
 
+const colVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
+  },
+};
+
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.15 } },
+};
+
 export default function CapabilitiesSection() {
   return (
     <section id="capabilities" className={styles.capabilities}>
-      <div className={styles.grid}>
-        <div>
+      <motion.div
+        className={styles.grid}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-60px' }}
+      >
+        <motion.div variants={colVariants}>
           <h2 className={styles.heading}>capabilities</h2>
           <ul className={styles.list}>
             {CAPABILITIES.map((item) => (
               <li key={item} className={styles.item}>{item}</li>
             ))}
           </ul>
-        </div>
-        <div>
+        </motion.div>
+        <motion.div variants={colVariants}>
           <h2 className={styles.heading}>strategic strengths</h2>
           <ul className={styles.list}>
             {STRENGTHS.map((item) => (
               <li key={item} className={styles.item}>{renderLines(item)}</li>
             ))}
           </ul>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

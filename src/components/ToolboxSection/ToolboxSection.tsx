@@ -1,3 +1,5 @@
+'use client';
+import { motion } from 'framer-motion';
 import Picture from '@/components/Picture';
 import styles from './ToolboxSection.module.css';
 
@@ -51,13 +53,35 @@ const CARDS = [
   },
 ] as const;
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.09, delayChildren: 0.05 },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 22 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] as const },
+  },
+};
+
 export default function ToolboxSection() {
   return (
     <section id="toolbox" className={styles.toolbox}>
       <h2 className={styles.heading}>design approach and toolbox</h2>
-      <div className={styles.grid}>
+      <motion.div
+        className={styles.grid}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-60px' }}
+      >
         {CARDS.map((card) => (
-          <div key={card.title[0]} className={styles.card}>
+          <motion.div key={card.title[0]} className={styles.card} variants={cardVariants}>
             <h3 className={styles.title}>
               {card.title.map((line, i) => (
                 <span key={i}>{line}{i < card.title.length - 1 && <br />}</span>
@@ -69,9 +93,9 @@ export default function ToolboxSection() {
               ))}
             </div>
             <p className={styles.description}>{card.description}</p>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }
