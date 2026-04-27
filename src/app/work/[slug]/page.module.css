@@ -28,7 +28,7 @@
 .introInner {
   margin: 0 var(--page-padding);
   padding: 48px;
-  background: #000000;
+  background: var(--color-text);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
@@ -45,14 +45,14 @@
   font-size: 32px;
   font-weight: 700;
   line-height: 1.15;
-  color: #ffffff;
+  color: var(--color-bg);
 }
 
 .categories {
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #ffffff;
+  color: var(--color-bg);
   opacity: 0.5;
   line-height: 1.5;
 }
@@ -66,7 +66,7 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #ffffff;
+  color: var(--color-bg);
   opacity: 0.4;
   margin-bottom: 12px;
 }
@@ -74,7 +74,7 @@
 .introBody {
   font-size: 16px;
   line-height: 1.65;
-  color: #ffffff;
+  color: var(--color-bg);
 }
 
 /* ── Gallery 2-col (Marginalia logo panels) ─────── */

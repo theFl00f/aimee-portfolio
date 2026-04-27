@@ -5,6 +5,7 @@
   height: var(--nav-height);
   padding: 0 var(--page-padding);
   position: relative;
+  z-index: 100;
 }
 
 .logo {
@@ -64,6 +65,14 @@
 
 @media (max-width: 768px) {
   .toggle { display: flex; }
+
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--color-bg);
+  }
 
   .nav {
     position: absolute;
