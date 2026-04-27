@@ -48,11 +48,15 @@
 .toggle {
   display: none;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 5px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px;
+  padding: 10px;
+  min-width: 44px;
+  min-height: 44px;
 }
 
 .toggleSpan {
@@ -90,7 +94,10 @@
   .open { display: flex; }
 
   .navLink {
-    padding: 12px var(--page-padding);
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 var(--page-padding);
     font-size: 16px;
   }
 }

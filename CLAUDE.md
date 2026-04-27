@@ -14,3 +14,32 @@ This is a graphic design portfolio (brand register). See `PRODUCT.md` for strate
 **Current palette:** ink-only (oklch(8% 0.008 40) / oklch(97% 0.008 80), hex fallbacks #030101 / #f8f5ef) — warm-tinted near-black on near-white, no accent colors. Color tokens are gated behind `@supports (color: oklch(0% 0 0))` in `globals.css`. The Editorial Monochrome Rule applies.
 
 Before working on any visual feature, load: `PRODUCT.md` + `DESIGN.md`.
+
+## Browser Verification
+
+**Never use `preview_start` or any `preview_*` tools.** Use Playwright instead.
+
+`playwright.config.ts` is configured with `reuseExistingServer: true` — it starts `npm run dev` automatically if nothing is on port 3000, and reuses an already-running server if one exists.
+
+**To run tests:**
+```bash
+npx playwright test
+```
+
+**For one-off assertions** (touch targets, computed styles, layout checks), write an inline Node script:
+```bash
+node -e "
+const { chromium } = require('@playwright/test');
+(async () => {
+  const b = await chromium.launch();
+  const page = await b.newPage();
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto('http://localhost:3000');
+  const box = await page.locator('button[aria-label=\"Toggle navigation\"]').boundingBox();
+  console.log(box);
+  await b.close();
+})();
+"
+```
+
+Tests live in `tests/`. Run a single file: `npx playwright test tests/nav.spec.ts`.
