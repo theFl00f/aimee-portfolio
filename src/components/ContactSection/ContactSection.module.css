@@ -1,0 +1,138 @@
+.contact {
+  padding: 0 var(--page-padding);
+  margin-bottom: 120px;
+}
+
+.sectionMark {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.35;
+  margin-bottom: 32px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 240px;
+  gap: 64px;
+  align-items: start;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 56ch;
+}
+
+.heading {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-optical-sizing: auto;
+}
+
+.invite {
+  font-size: 18px;
+  line-height: 1.55;
+  font-weight: 400;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-start;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 14px 0 4px;
+  border-bottom: 1px solid var(--color-border);
+  color: inherit;
+  transition: opacity 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+              gap 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  min-height: 44px;
+}
+
+.cta:hover { opacity: 0.6; gap: 14px; }
+
+.cta:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 4px;
+}
+
+.ctaIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.ctaLabel {
+  letter-spacing: 0.01em;
+}
+
+.ctaArrow {
+  font-size: 14px;
+  line-height: 1;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cta:hover .ctaArrow {
+  transform: translate(2px, -2px);
+}
+
+/* Portrait — same vocabulary as work cards: 1px ink border, 6px radius */
+.portrait {
+  width: 100%;
+  max-width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  justify-self: end;
+}
+
+.portraitFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-placeholder);
+  overflow: hidden;
+}
+
+.portraitFrame img {
+  filter: grayscale(1) contrast(1.02);
+}
+
+.portraitCaption {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
+@media (max-width: 1023px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr) 200px;
+    gap: 48px;
+  }
+  .portrait { max-width: 200px; }
+}
+
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .portrait {
+    order: -1;
+    justify-self: start;
+    max-width: 160px;
+  }
+  .heading { font-size: 24px; }
+  .invite { font-size: 17px; }
+}
