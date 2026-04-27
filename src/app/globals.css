@@ -1,11 +1,24 @@
-/* Design tokens */
+/* Design tokens
+ * Color values are warm-tinted neutrals (see DESIGN.md "The Editorial Monochrome").
+ * Hex fallbacks for browsers without OKLCH support (Safari < 15.4, Chrome < 111, Firefox < 113);
+ * @supports promotes to OKLCH where available so the warm tint actually renders.
+ */
 :root {
-  --color-bg: #ffffff;
-  --color-text: #000000;
-  --color-border: #000000;
-  --color-placeholder: #e8e8e8;
+  --color-page: #f8f5ef;
+  --color-ink: #030101;
+  --color-ash: #e4e1dc;
+  /* Named per DESIGN.md "The Scrim Exception": functional gradient for card label legibility only */
+  --color-scrim: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
   --page-padding: 120px;
   --nav-height: 82px;
+}
+
+@supports (color: oklch(0% 0 0)) {
+  :root {
+    --color-page: oklch(97% 0.008 80);
+    --color-ink: oklch(8% 0.008 40);
+    --color-ash: oklch(91% 0.007 75);
+  }
 }
 
 @media (max-width: 1023px) {
@@ -16,14 +29,37 @@
   :root { --page-padding: 16px; }
 }
 
+@media (max-width: 768px) {
+  :root { --nav-height: 62px; }
+  main { padding-top: var(--nav-height); }
+}
+
 /* Reset */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
-  background: var(--color-bg);
-  color: var(--color-text);
+  font-family: var(--font-body), system-ui, sans-serif;
+  background: var(--color-page);
+  color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
+  font-optical-sizing: auto;
 }
 img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: disc; padding-left: 1.25em; }
+
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-100%);
+  z-index: 200;
+  background: var(--color-page);
+  color: var(--color-ink);
+  border-bottom: 1px solid var(--color-ink);
+  padding: 12px var(--page-padding);
+  font-size: 14px;
+  font-weight: 500;
+  transition: transform 0.15s ease;
+}
+.skip-link:focus { transform: translateY(0); }

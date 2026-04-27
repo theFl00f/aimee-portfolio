@@ -1,12 +1,22 @@
 .work {
   padding: 0 var(--page-padding);
-  margin-bottom: 120px;
+  margin-bottom: 160px;
+}
+
+.sectionMark {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.35;
+  margin-bottom: 16px;
 }
 
 .grid {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  will-change: transform;
 }
 
 .rowTop {
@@ -19,6 +29,33 @@
   display: grid;
   grid-template-columns: 1fr 1fr 2fr;
   gap: 8px;
+}
+
+.cell {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  /* GPU-promote so filter animation stays smooth */
+  will-change: filter, opacity;
+}
+
+.marginalia {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  height: 12px;
+  line-height: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.marginaliaInner {
+  display: inline-block;
+  /* clip-path animated by framer-motion */
 }
 
 /* At medium widths, wide card goes full-width and squares sit side-by-side below */
@@ -39,4 +76,9 @@
     display: flex;
     flex-direction: column;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grid { will-change: auto; }
+  .cell { will-change: auto; }
 }

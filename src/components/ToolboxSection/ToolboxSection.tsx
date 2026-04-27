@@ -38,9 +38,9 @@ const CARDS = [
     icons: [
       { src: '/icons/Firefly.png', alt: 'Adobe Firefly' },
       { src: '/icons/Midjourney.png', alt: 'Midjourney' },
-      { src: '/icons/Dall\u2022E.png', alt: 'DALL\u00b7E' },
+      { src: '/icons/Dall•E.png', alt: 'DALL·E' },
     ],
-    description: 'Accelerated design for faster ideation, image editing, and critique \u2014 enhancing creativity without replacing intuition.',
+    description: 'Accelerated design for faster ideation, image editing, and critique, enhancing creativity without replacing intuition.',
   },
   {
     title: ['Communication Design +', 'Workflow'],
@@ -56,43 +56,50 @@ const CARDS = [
 const containerVariants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.09, delayChildren: 0.05 },
+    transition: { staggerChildren: 0.07, delayChildren: 0.05 },
   },
 };
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 22 },
+const rowVariants = {
+  hidden: { opacity: 0, y: 16 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
 export default function ToolboxSection() {
   return (
     <section id="toolbox" className={styles.toolbox}>
-      <h2 className={styles.heading}>design approach and toolbox</h2>
+      <motion.p
+        className={styles.sectionMark}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+      >02 / approach</motion.p>
+      <h2 className={styles.heading}>approach + toolbox</h2>
       <motion.div
-        className={styles.grid}
+        className={styles.table}
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-60px' }}
       >
         {CARDS.map((card) => (
-          <motion.div key={card.title[0]} className={styles.card} variants={cardVariants}>
-            <h3 className={styles.title}>
+          <motion.div key={card.title[0]} className={styles.row} variants={rowVariants}>
+            <p className={styles.rowTitle}>
               {card.title.map((line, i) => (
                 <span key={i}>{line}{i < card.title.length - 1 && <br />}</span>
               ))}
-            </h3>
-            <div className={styles.iconRow}>
+            </p>
+            <div className={styles.rowIcons}>
               {card.icons.map((icon) => (
-                <Picture key={icon.alt} src={icon.src} alt={icon.alt} width={48} height={48} />
+                <Picture key={icon.alt} src={icon.src} alt={icon.alt} width={32} height={32} />
               ))}
             </div>
-            <p className={styles.description}>{card.description}</p>
+            <p className={styles.rowDescription}>{card.description}</p>
           </motion.div>
         ))}
       </motion.div>

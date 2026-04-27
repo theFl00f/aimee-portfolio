@@ -7,14 +7,17 @@
 .h1 {
   display: flex;
   flex-direction: column;
-  font-size: 46px;
-  line-height: 1.2;
-  margin-bottom: 24px;
+  margin-bottom: 0;
 }
 
 .name {
+  font-family: var(--font-display), Georgia, serif;
   font-weight: 700;
-  min-height: 1.2em; /* prevents layout shift while name types in */
+  font-size: clamp(36px, 4.5vw, 62px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  font-optical-sizing: auto;
+  min-height: 1.1em;
 }
 
 .caretWrap { display: inline-block; }
@@ -33,16 +36,25 @@
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
-.title { font-weight: 500; }
+
+.title {
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: clamp(16px, 2vw, 22px);
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+  opacity: 0.55;
+  margin-top: 6px;
+  margin-bottom: 20px;
+}
 
 .tagline {
   font-size: 18px;
   font-weight: 400;
-  max-width: 679px;
-  line-height: 1.4;
+  max-width: 68ch;
+  line-height: 1.6;
 }
 
 @media (max-width: 768px) {
-  .h1 { font-size: 32px; }
-  .tagline { font-size: 18px; }
+  .tagline { font-size: 17px; }
 }

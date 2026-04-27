@@ -14,6 +14,7 @@ type PictureProps = {
   placeholder?: 'blur' | 'empty';
   className?: string;
   objectFit?: CSSProperties['objectFit'];
+  objectPosition?: CSSProperties['objectPosition'];
 };
 
 const OUT_PREFIX = '/_img';
@@ -34,6 +35,7 @@ export default function Picture({
   placeholder,
   className,
   objectFit,
+  objectPosition,
 }: PictureProps) {
   const entry = imageManifest[src];
   if (!entry) {
@@ -51,6 +53,7 @@ export default function Picture({
     imgStyle.width = '100%';
     imgStyle.height = '100%';
     imgStyle.objectFit = objectFit ?? 'cover';
+    if (objectPosition) imgStyle.objectPosition = objectPosition;
   }
   if (placeholder === 'blur' && !loaded) {
     imgStyle.backgroundImage = `url(${entry.blurDataURL})`;

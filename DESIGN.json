@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-04-26T00:00:00Z",
+  "title": "Design System: Aimee Marcos Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "primary",
+        "displayName": "Ink",
+        "canonical": "oklch(8% 0.008 40)",
+        "fallback": "#030101",
+        "tonalRamp": ["oklch(8% 0.008 40)", "oklch(18% 0.008 40)", "oklch(30% 0.008 40)", "oklch(43% 0.008 40)", "oklch(56% 0.008 40)", "oklch(68% 0.008 40)", "oklch(80% 0.007 60)", "oklch(91% 0.007 75)"]
+      },
+      "page": {
+        "role": "neutral",
+        "displayName": "Page",
+        "canonical": "oklch(97% 0.008 80)",
+        "fallback": "#f8f5ef",
+        "tonalRamp": ["oklch(18% 0.008 40)", "oklch(30% 0.008 40)", "oklch(43% 0.008 40)", "oklch(56% 0.008 40)", "oklch(68% 0.008 40)", "oklch(80% 0.007 60)", "oklch(91% 0.007 75)", "oklch(97% 0.008 80)"]
+      },
+      "ash": {
+        "role": "neutral",
+        "displayName": "Ash",
+        "canonical": "oklch(91% 0.007 75)",
+        "fallback": "#e4e1dc",
+        "tonalRamp": ["oklch(30% 0.008 40)", "oklch(43% 0.008 40)", "oklch(56% 0.008 40)", "oklch(68% 0.008 40)", "oklch(80% 0.007 60)", "oklch(91% 0.007 75)", "oklch(94% 0.007 78)", "oklch(97% 0.008 80)"]
+      }
+    },
+    "typographyMeta": {
+      "display":          { "displayName": "Display",           "font": "Source Serif 4", "purpose": "Hero name (Aimee Marcos). Identity layer only — the single largest, most characterful element on the page." },
+      "subtitle":         { "displayName": "Subtitle",          "font": "Inter",          "purpose": "Hero subtitle 'Graphic Designer'. Functional clarification; must remain ≥2.5× smaller than display." },
+      "section-heading":  { "displayName": "Section Heading",   "font": "Source Serif 4", "purpose": "Identity-layer headings: 'capabilities', 'strategic strengths'. Not for toolbox or nav headings." },
+      "functional-heading":{"displayName": "Functional Heading","font": "Inter",          "purpose": "Process/tool headings: 'design approach and toolbox'. Organizational, not identity." },
+      "body":             { "displayName": "Body",              "font": "Inter",          "purpose": "Hero tagline, primary reading copy. Max line length 68ch." },
+      "body-small":       { "displayName": "Body Small",        "font": "Inter",          "purpose": "Lists, capability items, longer descriptive passages." },
+      "label":            { "displayName": "Label",             "font": "Inter",          "purpose": "Nav links, card titles, footer text, toolbox row descriptions." },
+      "label-micro":      { "displayName": "Label Micro",       "font": "Inter",          "purpose": "Card category strings and section marks (01 / work). Sole uppercase usage in the system." }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Default easing for all transitions involving movement. Used on card hover scale and hero animation."
+      },
+      {
+        "name": "ease-standard",
+        "value": "ease",
+        "purpose": "Secondary easing for simpler state transitions (cover image zoom, nav toggle spans)."
+      }
+    ],
+    "breakpoints": [
+      { "name": "mobile",  "value": "479px",  "purpose": "Page padding drops to 16px" },
+      { "name": "tablet",  "value": "768px",  "purpose": "Nav becomes fixed + hamburger; grid collapses to single column; type scale reduces" },
+      { "name": "desktop", "value": "1024px", "purpose": "Full page padding (120px) kicks in" },
+      { "name": "wide",    "value": "1200px", "purpose": "Work grid collapses from 3-col to 2-col + stacked wide card" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Work Card",
+      "kind": "card",
+      "refersTo": "work-card",
+      "description": "Image-first portfolio card. The photograph is the whole card; metadata overlays as a gradient label at the base.",
+      "html": "<a class=\"ds-work-card\" href=\"#\">\n  <img class=\"ds-work-card__cover\" src=\"https://placehold.co/600x300/e8e8e8/000000?text=Work\" alt=\"Marginalia\" />\n  <div class=\"ds-work-card__label\">\n    <span class=\"ds-work-card__category\">Branding &middot; Visual Identity</span>\n    <span class=\"ds-work-card__title\">Marginalia</span>\n  </div>\n</a>",
+      "css": ".ds-work-card { display: block; position: relative; border: 1px solid oklch(8% 0.008 40); border-radius: 6px; background: oklch(91% 0.007 75); overflow: hidden; text-decoration: none; color: inherit; aspect-ratio: 587 / 189; transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); } .ds-work-card:hover { transform: scale(1.015); } .ds-work-card__cover { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.35s ease; } .ds-work-card:hover .ds-work-card__cover { transform: scale(1.04); } .ds-work-card__label { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px 16px 16px; background: linear-gradient(to top, oklch(8% 0.008 40 / 0.6) 0%, transparent 100%); color: oklch(97% 0.008 80); display: flex; flex-direction: column; gap: 4px; } .ds-work-card__category { font-family: Inter, system-ui, sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.75; } .ds-work-card__title { font-family: Inter, system-ui, sans-serif; font-size: 14px; font-weight: 500; line-height: 1.3; }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Minimal navigation anchor. Opacity fade on hover; 2px ink outline on focus-visible.",
+      "html": "<nav class=\"ds-nav\">\n  <a class=\"ds-nav-link\" href=\"#\">Work</a>\n  <a class=\"ds-nav-link\" href=\"#\">About</a>\n  <a class=\"ds-nav-link\" href=\"#\">Contact</a>\n</nav>",
+      "css": ".ds-nav { display: flex; gap: 32px; } .ds-nav-link { font-family: Inter, system-ui, sans-serif; font-size: 14px; font-weight: 500; color: oklch(8% 0.008 40); text-decoration: none; transition: opacity 0.2s; } .ds-nav-link:hover { opacity: 0.6; } .ds-nav-link:focus-visible { outline: 2px solid oklch(8% 0.008 40); outline-offset: 2px; }"
+    },
+    {
+      "name": "Footer",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Border-top divider with credit text left and LinkedIn icon right. Opacity hover on the social link.",
+      "html": "<footer class=\"ds-footer\">\n  <span class=\"ds-footer__credit\">Designed by Aimee Marcos</span>\n  <a class=\"ds-footer__social\" href=\"#\" aria-label=\"LinkedIn\">\n    <svg class=\"ds-footer__icon\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z\"/></svg>\n  </a>\n</footer>",
+      "css": ".ds-footer { display: flex; align-items: center; justify-content: space-between; padding: 24px 120px; border-top: 1px solid oklch(8% 0.008 40); margin-top: 64px; } .ds-footer__credit { font-family: Inter, system-ui, sans-serif; font-size: 14px; font-weight: 500; color: oklch(8% 0.008 40); } .ds-footer__social { color: oklch(8% 0.008 40); display: inline-flex; transition: opacity 0.2s; } .ds-footer__social:hover { opacity: 0.6; } .ds-footer__social:focus-visible { outline: 2px solid oklch(8% 0.008 40); outline-offset: 4px; } .ds-footer__icon { width: 20px; height: 20px; }"
+    },
+    {
+      "name": "Hero Typewriter",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Animated name reveal using a blinking cursor, followed by fade-in of title and tagline. Reduced-motion users receive the fully-rendered static state.",
+      "html": "<section class=\"ds-hero\">\n  <h1 class=\"ds-hero__h1\">\n    <span class=\"ds-hero__name\">Aimee Marcos</span>\n    <span class=\"ds-hero__title\">Graphic Designer</span>\n  </h1>\n  <p class=\"ds-hero__tagline\">Ex-SAP, now channelling enterprise experience into expressive, human-centered creative direction.</p>\n</section>",
+      "css": ".ds-hero { padding: 0 120px; margin-top: 64px; margin-bottom: 100px; } .ds-hero__h1 { display: flex; flex-direction: column; font-size: 46px; line-height: 1.2; margin-bottom: 24px; } .ds-hero__name { font-family: Inter, system-ui, sans-serif; font-weight: 700; color: oklch(8% 0.008 40); } .ds-hero__title { font-family: Inter, system-ui, sans-serif; font-weight: 500; color: oklch(8% 0.008 40); } .ds-hero__tagline { font-family: Inter, system-ui, sans-serif; font-size: 18px; font-weight: 400; line-height: 1.4; max-width: 679px; color: oklch(8% 0.008 40); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Printed Page",
+    "overview": "This portfolio thinks in spreads, not screens. The design logic is borrowed from editorial print: generous white space, a single typeface held to strict weight contrast, borders drawn in one color only. Aimee's work — full-color, conceptually dense, genre-spanning — needs a neutral to land against. The portfolio IS that neutral. It has no aesthetic agenda of its own; it creates the conditions for the work to be seen.\n\nThe personality is warm professional: rigorous enough to signal craft, restrained enough to stay out of the work's way. Nothing performs. The typewriter hero names the person. Everything after is curation.",
+    "keyCharacteristics": [
+      "Single typeface (Inter), three weights, strict scale",
+      "Ink-only palette — no accent, no tint, no gradient on type",
+      "8px card grid creates visual compression; 120px page margins create air",
+      "Borders as the only structural signal — no shadow, no blur, no surface lifting",
+      "Motion is earned: the typewriter intro has permission; scroll animations have a low bar; decoration has none"
+    ],
+    "rules": [
+      {
+        "name": "The Editorial Monochrome Rule",
+        "body": "There is no accent color. Introducing any tint breaks the neutrality that makes work images read. If a design reach for a color, ask what it adds that the work doesn't already supply. The answer is almost always: nothing.",
+        "section": "colors"
+      },
+      {
+        "name": "The Scrim Exception",
+        "body": "The one permitted gradient is the card label overlay: linear-gradient(to top, rgba(0,0,0,0.6), transparent). It is functional (legibility), not decorative. It does not set a precedent for gradients elsewhere.",
+        "section": "colors"
+      },
+      {
+        "name": "The Weight Ladder Rule",
+        "body": "Hierarchy is built through size and weight contrast only — never color, never decoration. Each step down the type scale must be visually distinct without relying on anything but scale ratio (≥1.25) and weight shift (400 → 500 → 700).",
+        "section": "typography"
+      },
+      {
+        "name": "The Uppercase Micro Rule",
+        "body": "text-transform: uppercase is permitted only at Label-micro (10px card categories). At any larger size, uppercase text fights the editorial register. Prohibited in headings, nav, body, and button labels.",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "Do let work images be the dominant element on every screen. The UI is the frame; the work is the art.",
+      "Do use generous page margins (120px desktop) as a first response to 'this feels crowded.'",
+      "Do use cubic-bezier(0.22, 1, 0.36, 1) easing for all transitions involving movement.",
+      "Do follow focus-visible with outline: 2px solid #000000 on every interactive element.",
+      "Do use Label-micro (10px / uppercase / 0.08em tracking) only for card category strings.",
+      "Do collapse the asymmetric grid gracefully at breakpoints — the editorial composition should survive at every width."
+    ],
+    "donts": [
+      "Don't introduce an accent color. The Editorial Monochrome rule stands.",
+      "Don't use gradient text (background-clip: text with any gradient). Prohibited regardless of context.",
+      "Don't use border-left or border-right greater than 1px as a colored stripe on any card, callout, or list item.",
+      "Don't add animation that performs rather than communicates. If the motion would be better still, it should be still.",
+      "Don't replicate Behance or Dribbble aesthetics — shiny hover effects, drop shadows on every card, gradient overlays as style.",
+      "Don't use scrolljacking, parallax on text, or particle effects.",
+      "Don't use text-transform: uppercase above 10px.",
+      "Don't add cards inside cards, or nest containers that already have padding.",
+      "Don't add a dark mode speculatively. A dark variant requires a full design pass, not a CSS variable swap."
+    ]
+  }
+}

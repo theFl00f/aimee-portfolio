@@ -74,11 +74,11 @@ export default function Hero() {
       <section id="hero" className={styles.hero}>
         <h1 className={styles.h1}>
           <span className={styles.name}>{FULL_NAME}</span>
-          <span className={styles.title}>Graphic Designer</span>
         </h1>
+        <p className={styles.title}>Graphic Designer</p>
         <p className={styles.tagline}>
           Ex-SAP, now channelling my enterprise experience into expressive,
-          human-centered creative direction 🌪️🖤🪄
+          human-centered creative direction <span aria-hidden="true">🌪️🖤🪄</span>
         </p>
       </section>
     );
@@ -102,16 +102,16 @@ export default function Hero() {
             )}
           </AnimatePresence>
         </span>
-
-        <motion.span
-          className={styles.title}
-          initial={{ opacity: 0, y: 20 }}
-          animate={restVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.8, ease }}
-        >
-          Graphic Designer
-        </motion.span>
       </h1>
+
+      <motion.p
+        className={styles.title}
+        initial={{ opacity: 0, y: 20 }}
+        animate={restVisible ? { opacity: 0.55, y: 0 } : { opacity: 0, y: 20 }}
+        transition={{ duration: 0.8, ease }}
+      >
+        Graphic Designer
+      </motion.p>
 
       <motion.p
         className={styles.tagline}
@@ -120,7 +120,7 @@ export default function Hero() {
         transition={{ duration: 0.8, delay: 0.12, ease }}
       >
         Ex-SAP, now channelling my enterprise experience into expressive,
-        human-centered creative direction 🌪️🖤🪄
+        human-centered creative direction <span aria-hidden="true">🌪️🖤🪄</span>
       </motion.p>
     </section>
   );

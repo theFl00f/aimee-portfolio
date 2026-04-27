@@ -1,74 +1,94 @@
 'use client';
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { useReducedMotion, motion, useScroll, useVelocity, useSpring, useTransform } from 'framer-motion';
 import styles from './WorkGrid.module.css';
 import WorkCard from '../WorkCard/WorkCard';
-import { WORK_ITEMS } from '@/data/work';
+import { WORK_ITEMS, WorkItem, CardVariant } from '@/data/work';
 
 const [marginalia, mycelium, sapGpo] = WORK_ITEMS;
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-type Breakpoint = 'desktop' | 'tablet' | 'mobile';
-
-const DIRECTIONS: Record<Breakpoint, ReadonlyArray<readonly [number, number]>> = {
-  desktop: [[-40, 0], [0, -40], [40, 0], [-40, 0], [0, 40], [40, 0]],
-  tablet:  [[0, -40], [-40, 0], [40, 0], [-40, 0], [0, 40], [40, 0]],
-  mobile:  [[-40, 0], [40, 0], [-40, 0], [40, 0], [-40, 0], [40, 0]],
-};
-
-function resolveBreakpoint(): Breakpoint {
-  if (typeof window === 'undefined') return 'desktop';
-  if (window.matchMedia('(max-width: 768px)').matches) return 'mobile';
-  if (window.matchMedia('(max-width: 1200px)').matches) return 'tablet';
-  return 'desktop';
-}
-
-function useBreakpoint(): Breakpoint {
-  const [bp, setBp] = useState<Breakpoint>(resolveBreakpoint);
-
-  useEffect(() => {
-    const mobileMQ = window.matchMedia('(max-width: 768px)');
-    const tabletMQ = window.matchMedia('(max-width: 1200px)');
-
-    const update = () => setBp(resolveBreakpoint());
-
-    update();
-    mobileMQ.addEventListener('change', update);
-    tabletMQ.addEventListener('change', update);
-    return () => {
-      mobileMQ.removeEventListener('change', update);
-      tabletMQ.removeEventListener('change', update);
-    };
-  }, []);
-
-  return bp;
-}
-
 const rowVariants = {
   hidden: {},
+  visible: { transition: { staggerChildren: 0.18 } },
+};
+
+const developVariants = {
+  hidden: {
+    opacity: 0,
+    filter: 'grayscale(1) blur(6px)',
+  },
   visible: {
-    transition: { staggerChildren: 0.2 },
+    opacity: 1,
+    filter: 'grayscale(0) blur(0px)',
+    transition: { duration: 0.95, ease },
   },
 };
 
-const cardVariants = (x: number, y: number) => ({
-  hidden: { opacity: 0, x, y },
+const captionVariants = {
+  hidden: { clipPath: 'inset(0 100% 0 0)' },
   visible: {
-    opacity: 1,
-    x: 0,
-    y: 0,
-    transition: { duration: 0.9, ease },
+    clipPath: 'inset(0 0% 0 0)',
+    transition: { duration: 0.7, ease, delay: 0.55 },
   },
-});
+};
+
+const reducedVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.4 } },
+};
+
+function buildMarginalia(item?: WorkItem): string | null {
+  if (!item) return null;
+  const tag = item.categories.split('·')[0]?.trim().toUpperCase() ?? '';
+  return `${item.year} · ${tag}`;
+}
+
+interface CellProps {
+  variant: CardVariant;
+  item?: WorkItem;
+  reduced: boolean;
+}
+
+function Cell({ variant, item, reduced }: CellProps) {
+  const caption = buildMarginalia(item);
+
+  return (
+    <motion.div className={styles.cell} variants={reduced ? reducedVariants : developVariants}>
+      <p className={styles.marginalia} aria-hidden={!caption}>
+        <motion.span
+          className={styles.marginaliaInner}
+          variants={reduced ? reducedVariants : captionVariants}
+        >
+          {caption ?? ' '}
+        </motion.span>
+      </p>
+      <WorkCard variant={variant} item={item} />
+    </motion.div>
+  );
+}
 
 export default function WorkGrid() {
-  const bp = useBreakpoint();
-  const dirs = DIRECTIONS[bp];
+  const reduced = useReducedMotion() ?? false;
+
+  const { scrollY } = useScroll();
+  const velocity = useVelocity(scrollY);
+  const driftRaw = useTransform(velocity, [-2400, 0, 2400], [8, 0, -8], { clamp: true });
+  const drift = useSpring(driftRaw, { stiffness: 180, damping: 28, mass: 0.6 });
+
+  const wrapperStyle = reduced ? undefined : { y: drift };
 
   return (
     <section id="work" className={styles.work}>
-      <div className={styles.grid}>
+      <motion.p
+        className={styles.sectionMark}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease }}
+      >01 / work</motion.p>
+
+      <motion.div className={styles.grid} style={wrapperStyle}>
         <motion.div
           className={styles.rowTop}
           initial="hidden"
@@ -76,15 +96,9 @@ export default function WorkGrid() {
           viewport={{ once: true, margin: '-40px' }}
           variants={rowVariants}
         >
-          <motion.div variants={cardVariants(dirs[0][0], dirs[0][1])}>
-            <WorkCard variant="wide-landscape" item={marginalia} />
-          </motion.div>
-          <motion.div variants={cardVariants(dirs[1][0], dirs[1][1])}>
-            <WorkCard variant="square" item={mycelium} />
-          </motion.div>
-          <motion.div variants={cardVariants(dirs[2][0], dirs[2][1])}>
-            <WorkCard variant="square" item={sapGpo} />
-          </motion.div>
+          <Cell variant="wide-landscape" item={marginalia} reduced={reduced} />
+          <Cell variant="square" item={mycelium} reduced={reduced} />
+          <Cell variant="square" item={sapGpo} reduced={reduced} />
         </motion.div>
         <motion.div
           className={styles.rowBottom}
@@ -93,17 +107,11 @@ export default function WorkGrid() {
           viewport={{ once: true, margin: '-40px' }}
           variants={rowVariants}
         >
-          <motion.div variants={cardVariants(dirs[3][0], dirs[3][1])}>
-            <WorkCard variant="portrait" />
-          </motion.div>
-          <motion.div variants={cardVariants(dirs[4][0], dirs[4][1])}>
-            <WorkCard variant="portrait" />
-          </motion.div>
-          <motion.div variants={cardVariants(dirs[5][0], dirs[5][1])}>
-            <WorkCard variant="wide-landscape-tall" />
-          </motion.div>
+          <Cell variant="portrait" reduced={reduced} />
+          <Cell variant="portrait" reduced={reduced} />
+          <Cell variant="wide-landscape-tall" reduced={reduced} />
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 }

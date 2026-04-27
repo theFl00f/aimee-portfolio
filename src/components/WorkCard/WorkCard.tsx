@@ -32,6 +32,7 @@ export default function WorkCard({ variant, item }: WorkCardProps) {
         placeholder="blur"
         className={styles.cover}
         sizes="(max-width: 768px) 100vw, 50vw"
+        objectPosition={item.coverPosition}
       />
       <div className={styles.label}>
         <p className={styles.cardCategory}>{item.categories}</p>
