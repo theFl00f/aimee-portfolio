@@ -106,7 +106,7 @@ export default function Hero() {
         <motion.span
           className={styles.title}
           initial={{ opacity: 0, y: 20 }}
-          animate={restVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          animate={restVisible ? { opacity: 0.55, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, ease }}
         >
           Graphic Designer

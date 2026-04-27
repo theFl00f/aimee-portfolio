@@ -5,6 +5,7 @@ export type CardVariant = 'wide-landscape' | 'square' | 'portrait' | 'wide-lands
 export interface WorkItem {
   slug: string;
   title: string;
+  year: string;
   categories: string;
   overview: string;
   outcome: string;
@@ -22,6 +23,7 @@ export const WORK_ITEMS: WorkItem[] = [
   {
     slug: 'marginalia',
     title: 'Marginalia',
+    year: '2025',
     categories: 'Branding · Visual Identity · Social Media Marketing · Retail and Environmental Design',
     overview:
       'Marginalia is a contemporary bookstore brand identity concept inspired by the whimsical and irreverent drawings found in medieval manuscripts. The project encompasses a complete branding system, including logo design, website mockups, tote and bag designs, storefront applications, and social media content. The identity merges historic inspiration with modern minimalism, reframing marginal notes and manuscript doodles as a playful, stylish design language for a retail experience.',
@@ -46,6 +48,7 @@ export const WORK_ITEMS: WorkItem[] = [
   {
     slug: 'mycelium',
     title: 'Verae: Mycelium Underground',
+    year: '2024',
     categories: 'Art Direction · Editorial Design · Concept Development',
     overview:
       'Verae is a conceptual fashion magazine exploring style at the intersection of nature, culture, and surrealism. The debut issue, themed Purple Haze, pairs psychedelic aesthetics with forward-looking editorial design. Its centrepiece feature, Mycelium Underground, links fungi-inspired couture with hidden networks of fashion, blending designer gowns, mushroom imagery, and layered typography into immersive spreads. The project includes the cover, table of contents, and feature layouts, simulating a fully realized publication that balances concept with craft.',
@@ -68,6 +71,7 @@ export const WORK_ITEMS: WorkItem[] = [
   {
     slug: 'sap-gpo-hall-of-fame',
     title: 'SAP GPO Hall of Fame Awards',
+    year: '2024',
     categories: 'Brand Implementation · Creative Direction · Digital Communication Design',
     overview:
       "The Hall of Fame awards program for SAP's Global Partner Organization recognized both individual and team achievements and was presented quarterly by the Chief Partner Officer. As part of SAP's global rebrand, the program was refreshed with redesigned badges, banners, buttons, email templates, and wiki layouts in collaboration with the People and Performance team. The redesign created a modern, cohesive look that aligned with SAP's updated brand identity.",

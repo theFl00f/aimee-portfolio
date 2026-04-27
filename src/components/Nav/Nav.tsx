@@ -1,14 +1,22 @@
 'use client';
 
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import Picture from '@/components/Picture';
 import styles from './Nav.module.css';
+
+const ease = [0.22, 1, 0.36, 1] as const;
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className={styles.header}>
+    <motion.header
+      className={styles.header}
+      initial={{ opacity: 0, y: -8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease }}
+    >
       <a href="/" className={styles.logo} aria-label="Aimee Marcos home">
         <Picture src="/logo/am-logo.png" alt="AM logo" width={500} height={500} className={styles.logoImg} />
       </a>
@@ -23,10 +31,10 @@ export default function Nav() {
         <span className={styles.toggleSpan} />
       </button>
       <nav className={`${styles.nav} ${open ? styles.open : ''}`}>
-        <a href="#work" className={styles.navLink}>Work</a>
-        <a href="#toolbox" className={styles.navLink}>About</a>
-        <a href="#capabilities" className={styles.navLink}>Contact</a>
+        <a href="#work" className={styles.navLink} onClick={() => setOpen(false)}>Work</a>
+        <a href="#capabilities" className={styles.navLink} onClick={() => setOpen(false)}>About</a>
+        <a href="#contact" className={styles.navLink} onClick={() => setOpen(false)}>Contact</a>
       </nav>
-    </header>
+    </motion.header>
   );
 }
