@@ -18,7 +18,7 @@
 }
 
 .logo:focus-visible {
-  outline: 2px solid var(--color-text);
+  outline: 2px solid var(--color-ink);
   outline-offset: 4px;
 }
 
@@ -41,7 +41,7 @@
 .navLink:hover { opacity: 0.6; }
 
 .navLink:focus-visible {
-  outline: 2px solid var(--color-text);
+  outline: 2px solid var(--color-ink);
   outline-offset: 2px;
 }
 
@@ -63,7 +63,7 @@
   display: block;
   width: 24px;
   height: 2px;
-  background: var(--color-text);
+  background: var(--color-ink);
   transition: transform 0.25s, opacity 0.25s;
 }
 
@@ -75,7 +75,7 @@
     top: 0;
     left: 0;
     right: 0;
-    background: var(--color-bg);
+    background: var(--color-page);
   }
 
   .nav {
@@ -83,11 +83,11 @@
     top: var(--nav-height);
     left: 0;
     right: 0;
-    background: var(--color-bg);
+    background: var(--color-page);
     flex-direction: column;
     gap: 0;
     padding: 16px 0;
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-ink);
     display: none;
   }
 

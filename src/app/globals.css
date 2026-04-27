@@ -4,20 +4,20 @@
  * @supports promotes to OKLCH where available so the warm tint actually renders.
  */
 :root {
-  --color-bg: #f8f5ef;
-  --color-text: #030101;
-  --color-border: #030101;
-  --color-placeholder: #e4e1dc;
+  --color-page: #f8f5ef;
+  --color-ink: #030101;
+  --color-ash: #e4e1dc;
+  /* Named per DESIGN.md "The Scrim Exception": functional gradient for card label legibility only */
+  --color-scrim: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
   --page-padding: 120px;
   --nav-height: 82px;
 }
 
 @supports (color: oklch(0% 0 0)) {
   :root {
-    --color-bg: oklch(97% 0.008 80);
-    --color-text: oklch(8% 0.008 40);
-    --color-border: oklch(8% 0.008 40);
-    --color-placeholder: oklch(91% 0.007 75);
+    --color-page: oklch(97% 0.008 80);
+    --color-ink: oklch(8% 0.008 40);
+    --color-ash: oklch(91% 0.007 75);
   }
 }
 
@@ -39,8 +39,8 @@
 html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-body), system-ui, sans-serif;
-  background: var(--color-bg);
-  color: var(--color-text);
+  background: var(--color-page);
+  color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
   font-optical-sizing: auto;
 }
@@ -54,9 +54,9 @@ ul { list-style: disc; padding-left: 1.25em; }
   left: 0;
   transform: translateY(-100%);
   z-index: 200;
-  background: var(--color-bg);
-  color: var(--color-text);
-  border-bottom: 1px solid var(--color-border);
+  background: var(--color-page);
+  color: var(--color-ink);
+  border-bottom: 1px solid var(--color-ink);
   padding: 12px var(--page-padding);
   font-size: 14px;
   font-weight: 500;

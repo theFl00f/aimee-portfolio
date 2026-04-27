@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 24px var(--page-padding);
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid var(--color-ink);
   margin-top: 64px;
 }
 
@@ -24,7 +24,7 @@
 .social:hover { opacity: 0.6; }
 
 .social:focus-visible {
-  outline: 2px solid var(--color-text);
+  outline: 2px solid var(--color-ink);
   outline-offset: 4px;
 }
 
