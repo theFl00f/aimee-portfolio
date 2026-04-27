@@ -38,8 +38,9 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${sourceSerif.variable}`}>
       <body>
         <MotionProvider>
+          <a href="#main-content" className="skip-link">Skip to main content</a>
           <Nav />
-          <main>{children}</main>
+          <main id="main-content">{children}</main>
           <Footer />
         </MotionProvider>
       </body>
