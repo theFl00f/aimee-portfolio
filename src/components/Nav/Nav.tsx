@@ -32,9 +32,9 @@ export default function Nav() {
         <span className={styles.toggleSpan} />
       </button>
       <nav id="primary-nav" className={`${styles.nav} ${open ? styles.open : ''}`}>
-        <a href="#work" className={styles.navLink} onClick={() => setOpen(false)}>Work</a>
-        <a href="#capabilities" className={styles.navLink} onClick={() => setOpen(false)}>About</a>
-        <a href="#contact" className={styles.navLink} onClick={() => setOpen(false)}>Contact</a>
+        <a href="/#work" className={styles.navLink} onClick={() => setOpen(false)}>Work</a>
+        <a href="/#capabilities" className={styles.navLink} onClick={() => setOpen(false)}>About</a>
+        <a href="/#contact" className={styles.navLink} onClick={() => setOpen(false)}>Contact</a>
       </nav>
     </motion.header>
   );

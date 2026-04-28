@@ -14,14 +14,14 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
   if (!item) notFound();
 
   return (
-    <main className={styles.page}>
+    <div className={styles.page}>
 
       <div className={styles.hero}>
         <Picture
           src={item.heroImage}
           alt=""
           fill
-          sizes="(max-width: 479px) calc(100vw - 32px), (max-width: 1023px) calc(100vw - 48px), calc(100vw - 240px)"
+          sizes="(max-width: 768px) 1920px, (max-width: 1023px) calc(100vw - 48px), calc(100vw - 240px)"
           className={styles.heroImg}
           placeholder="blur"
           priority
@@ -84,7 +84,6 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className={styles.sectionImgBlur}
-                objectFit="cover"
               />
               <Picture
                 src={item.outcomeImage}
@@ -114,7 +113,6 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className={styles.sectionImgBlur}
-                objectFit="cover"
               />
               <Picture
                 src={item.reflectionsImage}
@@ -134,6 +132,6 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
         </section>
       </FadeUp>
 
-    </main>
+    </div>
   );
 }
