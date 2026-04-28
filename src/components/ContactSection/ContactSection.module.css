@@ -104,7 +104,7 @@
 }
 
 .portraitFrame img {
-  filter: grayscale(1) contrast(1.02);
+  filter: url(#duotone-ink) contrast(1.02);
 }
 
 .portraitCaption {
