@@ -1,4 +1,3 @@
-// src/components/WorkCard/WorkCard.tsx
 import Link from 'next/link';
 import Picture from '@/components/Picture';
 import { WorkItem, CardVariant } from '@/data/work';
@@ -20,24 +19,20 @@ export default function WorkCard({ variant, item }: WorkCardProps) {
   const cardClass = `${styles.card} ${variantClass[variant]}`;
 
   if (!item) {
-    return <div className={cardClass} aria-label="Portfolio piece" />;
+    return <div className={cardClass} aria-hidden="true" />;
   }
 
   return (
-    <Link href={`/work/${item.slug}`} className={cardClass}>
+    <Link href={`/work/${item.slug}`} className={cardClass} aria-label={item.title}>
       <Picture
         src={item.coverImage}
-        alt={item.title}
+        alt=""
         fill
         placeholder="blur"
         className={styles.cover}
         sizes="(max-width: 768px) 100vw, 50vw"
         objectPosition={item.coverPosition}
       />
-      <div className={styles.label}>
-        <p className={styles.cardCategory}>{item.categories}</p>
-        <h3 className={styles.cardTitle}>{item.title}</h3>
-      </div>
     </Link>
   );
 }

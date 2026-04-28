@@ -1,5 +1,3 @@
-// src/data/work.ts
-
 export type CardVariant =
   | "wide-landscape"
   | "square"

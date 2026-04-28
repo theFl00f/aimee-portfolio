@@ -3,11 +3,7 @@ import { Inter, Source_Serif_4 } from 'next/font/google';
 import Nav from '@/components/Nav/Nav';
 import Footer from '@/components/Footer/Footer';
 import MotionProvider from '@/components/MotionProvider';
-import { config } from '@fortawesome/fontawesome-svg-core';
-import '@fortawesome/fontawesome-svg-core/styles.css';
 import './globals.css';
-
-config.autoAddCss = false;
 
 const inter = Inter({
   subsets: ['latin'],
@@ -25,7 +21,7 @@ const sourceSerif = Source_Serif_4({
 });
 
 export const metadata: Metadata = {
-  title: 'Aimee Marcos — Graphic Designer',
+  title: 'Aimee Marcos, Graphic Designer',
   icons: { icon: '/logo/am-logo.svg' },
 };
 

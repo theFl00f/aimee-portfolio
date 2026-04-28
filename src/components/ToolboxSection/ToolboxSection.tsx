@@ -71,7 +71,7 @@ const rowVariants = {
 
 export default function ToolboxSection() {
   return (
-    <section id="toolbox" className={styles.toolbox}>
+    <section id="toolbox" aria-labelledby="toolbox-heading" className={styles.toolbox}>
       <motion.p
         className={styles.sectionMark}
         initial={{ opacity: 0 }}
@@ -79,7 +79,7 @@ export default function ToolboxSection() {
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
       >02 / approach</motion.p>
-      <h2 className={styles.heading}>approach + toolbox</h2>
+      <h2 id="toolbox-heading" className={styles.heading}>approach + toolbox</h2>
       <motion.div
         className={styles.table}
         variants={containerVariants}

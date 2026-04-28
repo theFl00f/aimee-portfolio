@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-04-26T00:00:00Z",
+  "generatedAt": "2026-04-27T00:00:00Z",
   "title": "Design System: Aimee Marcos Portfolio",
   "extensions": {
     "colorMeta": {
@@ -9,49 +9,48 @@
         "displayName": "Ink",
         "canonical": "oklch(8% 0.008 40)",
         "fallback": "#030101",
-        "tonalRamp": ["oklch(8% 0.008 40)", "oklch(18% 0.008 40)", "oklch(30% 0.008 40)", "oklch(43% 0.008 40)", "oklch(56% 0.008 40)", "oklch(68% 0.008 40)", "oklch(80% 0.007 60)", "oklch(91% 0.007 75)"]
+        "tonalRamp": ["oklch(8% 0.008 40)", "oklch(18% 0.008 40)", "oklch(30% 0.008 40)", "oklch(42% 0.008 40)", "oklch(56% 0.008 40)", "oklch(68% 0.008 40)", "oklch(80% 0.007 60)", "oklch(91% 0.007 75)"]
+      },
+      "ink-muted": {
+        "role": "secondary",
+        "displayName": "Ink Muted",
+        "canonical": "oklch(42% 0.008 40)",
+        "fallback": "#595551",
+        "tonalRamp": ["oklch(18% 0.008 40)", "oklch(30% 0.008 40)", "oklch(42% 0.008 40)", "oklch(56% 0.008 40)", "oklch(68% 0.008 40)", "oklch(80% 0.007 60)", "oklch(91% 0.007 75)", "oklch(97% 0.008 80)"]
       },
       "page": {
         "role": "neutral",
         "displayName": "Page",
         "canonical": "oklch(97% 0.008 80)",
         "fallback": "#f8f5ef",
-        "tonalRamp": ["oklch(18% 0.008 40)", "oklch(30% 0.008 40)", "oklch(43% 0.008 40)", "oklch(56% 0.008 40)", "oklch(68% 0.008 40)", "oklch(80% 0.007 60)", "oklch(91% 0.007 75)", "oklch(97% 0.008 80)"]
+        "tonalRamp": ["oklch(18% 0.008 40)", "oklch(30% 0.008 40)", "oklch(42% 0.008 40)", "oklch(56% 0.008 40)", "oklch(68% 0.008 40)", "oklch(80% 0.007 60)", "oklch(91% 0.007 75)", "oklch(97% 0.008 80)"]
       },
       "ash": {
         "role": "neutral",
         "displayName": "Ash",
         "canonical": "oklch(91% 0.007 75)",
         "fallback": "#e4e1dc",
-        "tonalRamp": ["oklch(30% 0.008 40)", "oklch(43% 0.008 40)", "oklch(56% 0.008 40)", "oklch(68% 0.008 40)", "oklch(80% 0.007 60)", "oklch(91% 0.007 75)", "oklch(94% 0.007 78)", "oklch(97% 0.008 80)"]
+        "tonalRamp": ["oklch(30% 0.008 40)", "oklch(42% 0.008 40)", "oklch(56% 0.008 40)", "oklch(68% 0.008 40)", "oklch(80% 0.007 60)", "oklch(91% 0.007 75)", "oklch(94% 0.007 78)", "oklch(97% 0.008 80)"]
       }
     },
     "typographyMeta": {
-      "display":          { "displayName": "Display",           "font": "Source Serif 4", "purpose": "Hero name (Aimee Marcos). Identity layer only — the single largest, most characterful element on the page." },
-      "subtitle":         { "displayName": "Subtitle",          "font": "Inter",          "purpose": "Hero subtitle 'Graphic Designer'. Functional clarification; must remain ≥2.5× smaller than display." },
-      "section-heading":  { "displayName": "Section Heading",   "font": "Source Serif 4", "purpose": "Identity-layer headings: 'capabilities', 'strategic strengths'. Not for toolbox or nav headings." },
-      "functional-heading":{"displayName": "Functional Heading","font": "Inter",          "purpose": "Process/tool headings: 'design approach and toolbox'. Organizational, not identity." },
-      "body":             { "displayName": "Body",              "font": "Inter",          "purpose": "Hero tagline, primary reading copy. Max line length 68ch." },
-      "body-small":       { "displayName": "Body Small",        "font": "Inter",          "purpose": "Lists, capability items, longer descriptive passages." },
-      "label":            { "displayName": "Label",             "font": "Inter",          "purpose": "Nav links, card titles, footer text, toolbox row descriptions." },
-      "label-micro":      { "displayName": "Label Micro",       "font": "Inter",          "purpose": "Card category strings and section marks (01 / work). Sole uppercase usage in the system." }
+      "display":           { "displayName": "Display",            "font": "Source Serif 4", "purpose": "Hero name (Aimee Marcos). Identity layer only — the single largest, most characterful element on the page." },
+      "subtitle":          { "displayName": "Subtitle",           "font": "Inter",          "purpose": "Hero subtitle 'Graphic Designer'. Functional clarification; muted via the Ink Muted color token, not opacity." },
+      "section-heading":   { "displayName": "Section Heading",    "font": "Source Serif 4", "purpose": "Identity-layer headings: 'capabilities', 'strategic strengths'. Not for toolbox or nav." },
+      "functional-heading":{ "displayName": "Functional Heading", "font": "Inter",          "purpose": "Process/tool headings: 'approach + toolbox'. Organizational, not identity." },
+      "body":              { "displayName": "Body",               "font": "Inter",          "purpose": "Hero tagline, primary reading copy. Max line length 68ch." },
+      "body-small":        { "displayName": "Body Small",         "font": "Inter",          "purpose": "Lists and capability bullets." },
+      "label":             { "displayName": "Label",              "font": "Inter",          "purpose": "Nav links, footer credit, contact CTA, mobile nav (16px)." },
+      "label-micro":       { "displayName": "Label Micro",        "font": "Inter",          "purpose": "Section marks (01 / work) and marginalia kickers above each work card. Sole uppercase usage in the system." }
     },
     "shadows": [],
     "motion": [
-      {
-        "name": "ease-out-expo",
-        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
-        "purpose": "Default easing for all transitions involving movement. Used on card hover scale and hero animation."
-      },
-      {
-        "name": "ease-standard",
-        "value": "ease",
-        "purpose": "Secondary easing for simpler state transitions (cover image zoom, nav toggle spans)."
-      }
+      { "name": "ease-out-expo", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Default easing for all transitions involving movement. Used on card hover scale, hero animation, marginalia clipPath wipe, contact CTA gap shift." },
+      { "name": "ease-standard", "value": "ease",                            "purpose": "Secondary easing for the cover-image zoom inside work cards." }
     ],
     "breakpoints": [
       { "name": "mobile",  "value": "479px",  "purpose": "Page padding drops to 16px" },
-      { "name": "tablet",  "value": "768px",  "purpose": "Nav becomes fixed + hamburger; grid collapses to single column; type scale reduces" },
+      { "name": "tablet",  "value": "768px",  "purpose": "Nav becomes fixed + hamburger; grid collapses to single column; hero margins compress to 32/64; type scale reduces" },
       { "name": "desktop", "value": "1024px", "purpose": "Full page padding (120px) kicks in" },
       { "name": "wide",    "value": "1200px", "purpose": "Work grid collapses from 3-col to 2-col + stacked wide card" }
     ]
@@ -61,9 +60,25 @@
       "name": "Work Card",
       "kind": "card",
       "refersTo": "work-card",
-      "description": "Image-first portfolio card. The photograph is the whole card; metadata overlays as a gradient label at the base.",
-      "html": "<a class=\"ds-work-card\" href=\"#\">\n  <img class=\"ds-work-card__cover\" src=\"https://placehold.co/600x300/e8e8e8/000000?text=Work\" alt=\"Marginalia\" />\n  <div class=\"ds-work-card__label\">\n    <span class=\"ds-work-card__category\">Branding &middot; Visual Identity</span>\n    <span class=\"ds-work-card__title\">Marginalia</span>\n  </div>\n</a>",
-      "css": ".ds-work-card { display: block; position: relative; border: 1px solid oklch(8% 0.008 40); border-radius: 6px; background: oklch(91% 0.007 75); overflow: hidden; text-decoration: none; color: inherit; aspect-ratio: 587 / 189; transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); } .ds-work-card:hover { transform: scale(1.015); } .ds-work-card__cover { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.35s ease; } .ds-work-card:hover .ds-work-card__cover { transform: scale(1.04); } .ds-work-card__label { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px 16px 16px; background: linear-gradient(to top, oklch(8% 0.008 40 / 0.6) 0%, transparent 100%); color: oklch(97% 0.008 80); display: flex; flex-direction: column; gap: 4px; } .ds-work-card__category { font-family: Inter, system-ui, sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.75; } .ds-work-card__title { font-family: Inter, system-ui, sans-serif; font-size: 14px; font-weight: 500; line-height: 1.3; }"
+      "description": "Pure image card. No overlay, no scrim, no in-card label. Project identification lives in the marginalia caption above (separate component).",
+      "html": "<a class=\"ds-work-card\" href=\"#\" aria-label=\"Marginalia\">\n  <img class=\"ds-work-card__cover\" src=\"https://placehold.co/600x300/e4e1dc/030101?text=Work\" alt=\"\" />\n</a>",
+      "css": ".ds-work-card { display: block; position: relative; border: 1px solid oklch(8% 0.008 40); border-radius: 6px; background: oklch(91% 0.007 75); overflow: hidden; text-decoration: none; color: inherit; aspect-ratio: 587 / 189; transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); } .ds-work-card:hover { transform: scale(1.015); } .ds-work-card:focus-visible { outline: 2px solid oklch(8% 0.008 40); outline-offset: 4px; } .ds-work-card__cover { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.35s ease; } .ds-work-card:hover .ds-work-card__cover { transform: scale(1.04); }"
+    },
+    {
+      "name": "Marginalia Caption",
+      "kind": "custom",
+      "refersTo": "marginalia",
+      "description": "Editorial signature: small uppercase kicker label that floats above each work card cell, naming the project. Replaces the in-card label overlay.",
+      "html": "<div class=\"ds-cell\">\n  <p class=\"ds-marginalia\"><span class=\"ds-marginalia__inner\">Marginalia</span></p>\n  <a class=\"ds-work-card-mini\" href=\"#\" aria-label=\"Marginalia\">\n    <img src=\"https://placehold.co/600x300/e4e1dc/030101?text=Work\" alt=\"\" />\n  </a>\n</div>",
+      "css": ".ds-cell { display: flex; flex-direction: column; gap: 6px; } .ds-marginalia { font-family: Inter, system-ui, sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: oklch(42% 0.008 40); height: 12px; line-height: 12px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; } .ds-marginalia__inner { display: inline-block; } .ds-work-card-mini { display: block; border: 1px solid oklch(8% 0.008 40); border-radius: 6px; background: oklch(91% 0.007 75); overflow: hidden; aspect-ratio: 587 / 189; } .ds-work-card-mini img { width: 100%; height: 100%; object-fit: cover; display: block; }"
+    },
+    {
+      "name": "Section Mark",
+      "kind": "custom",
+      "refersTo": "section-mark",
+      "description": "Numbered chapter identifier at the top of every section. Same Label micro typography as marginalia.",
+      "html": "<p class=\"ds-section-mark\">01 / work</p>",
+      "css": ".ds-section-mark { font-family: Inter, system-ui, sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: oklch(42% 0.008 40); margin-bottom: 16px; }"
     },
     {
       "name": "Nav Link",
@@ -74,70 +89,64 @@
       "css": ".ds-nav { display: flex; gap: 32px; } .ds-nav-link { font-family: Inter, system-ui, sans-serif; font-size: 14px; font-weight: 500; color: oklch(8% 0.008 40); text-decoration: none; transition: opacity 0.2s; } .ds-nav-link:hover { opacity: 0.6; } .ds-nav-link:focus-visible { outline: 2px solid oklch(8% 0.008 40); outline-offset: 2px; }"
     },
     {
+      "name": "Contact CTA",
+      "kind": "button",
+      "refersTo": null,
+      "description": "Inline text-with-icon CTA. Single ink underline (border-bottom), opacity fade on hover, arrow steps right, gap widens.",
+      "html": "<a class=\"ds-cta\" href=\"#\" aria-label=\"LinkedIn\">\n  <svg class=\"ds-cta__icon\" xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z\"/></svg>\n  <span class=\"ds-cta__label\">LinkedIn</span>\n  <span class=\"ds-cta__arrow\" aria-hidden=\"true\">↗</span>\n</a>",
+      "css": ".ds-cta { display: inline-flex; align-items: center; gap: 10px; font-family: Inter, system-ui, sans-serif; font-size: 14px; font-weight: 500; color: oklch(8% 0.008 40); text-decoration: none; padding: 14px 0 4px; border-bottom: 1px solid oklch(8% 0.008 40); min-height: 44px; transition: opacity 0.25s cubic-bezier(0.22, 1, 0.36, 1), gap 0.25s cubic-bezier(0.22, 1, 0.36, 1); } .ds-cta:hover { opacity: 0.6; gap: 14px; } .ds-cta:focus-visible { outline: 2px solid oklch(8% 0.008 40); outline-offset: 4px; } .ds-cta__icon { display: block; width: 16px; height: 16px; } .ds-cta__label { letter-spacing: 0.01em; } .ds-cta__arrow { font-size: 14px; line-height: 1; transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1); } .ds-cta:hover .ds-cta__arrow { transform: translate(2px, -2px); }"
+    },
+    {
       "name": "Footer",
       "kind": "custom",
       "refersTo": null,
-      "description": "Border-top divider with credit text left and LinkedIn icon right. Opacity hover on the social link.",
-      "html": "<footer class=\"ds-footer\">\n  <span class=\"ds-footer__credit\">Designed by Aimee Marcos</span>\n  <a class=\"ds-footer__social\" href=\"#\" aria-label=\"LinkedIn\">\n    <svg class=\"ds-footer__icon\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z\"/></svg>\n  </a>\n</footer>",
-      "css": ".ds-footer { display: flex; align-items: center; justify-content: space-between; padding: 24px 120px; border-top: 1px solid oklch(8% 0.008 40); margin-top: 64px; } .ds-footer__credit { font-family: Inter, system-ui, sans-serif; font-size: 14px; font-weight: 500; color: oklch(8% 0.008 40); } .ds-footer__social { color: oklch(8% 0.008 40); display: inline-flex; transition: opacity 0.2s; } .ds-footer__social:hover { opacity: 0.6; } .ds-footer__social:focus-visible { outline: 2px solid oklch(8% 0.008 40); outline-offset: 4px; } .ds-footer__icon { width: 20px; height: 20px; }"
-    },
-    {
-      "name": "Hero Typewriter",
-      "kind": "custom",
-      "refersTo": null,
-      "description": "Animated name reveal using a blinking cursor, followed by fade-in of title and tagline. Reduced-motion users receive the fully-rendered static state.",
-      "html": "<section class=\"ds-hero\">\n  <h1 class=\"ds-hero__h1\">\n    <span class=\"ds-hero__name\">Aimee Marcos</span>\n    <span class=\"ds-hero__title\">Graphic Designer</span>\n  </h1>\n  <p class=\"ds-hero__tagline\">Ex-SAP, now channelling enterprise experience into expressive, human-centered creative direction.</p>\n</section>",
-      "css": ".ds-hero { padding: 0 120px; margin-top: 64px; margin-bottom: 100px; } .ds-hero__h1 { display: flex; flex-direction: column; font-size: 46px; line-height: 1.2; margin-bottom: 24px; } .ds-hero__name { font-family: Inter, system-ui, sans-serif; font-weight: 700; color: oklch(8% 0.008 40); } .ds-hero__title { font-family: Inter, system-ui, sans-serif; font-weight: 500; color: oklch(8% 0.008 40); } .ds-hero__tagline { font-family: Inter, system-ui, sans-serif; font-size: 18px; font-weight: 400; line-height: 1.4; max-width: 679px; color: oklch(8% 0.008 40); }"
+      "description": "Border-top divider with credit text left and LinkedIn icon right. The icon link wrapper is 44×44 to satisfy mobile touch-target minimums.",
+      "html": "<footer class=\"ds-footer\">\n  <p class=\"ds-footer__credit\">©️ Aimee Marcos, 2026</p>\n  <a class=\"ds-footer__social\" href=\"#\" aria-label=\"LinkedIn\">\n    <svg class=\"ds-footer__icon\" xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" fill=\"currentColor\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z\"/></svg>\n  </a>\n</footer>",
+      "css": ".ds-footer { display: flex; align-items: center; justify-content: space-between; padding: 24px 120px; border-top: 1px solid oklch(8% 0.008 40); margin-top: 64px; } .ds-footer__credit { font-family: Inter, system-ui, sans-serif; font-size: 14px; font-weight: 500; color: oklch(8% 0.008 40); } .ds-footer__social { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; color: oklch(8% 0.008 40); transition: opacity 0.2s; } .ds-footer__social:hover { opacity: 0.6; } .ds-footer__social:focus-visible { outline: 2px solid oklch(8% 0.008 40); outline-offset: 4px; } .ds-footer__icon { display: block; width: 20px; height: 20px; }"
     }
   ],
   "narrative": {
     "northStar": "The Printed Page",
-    "overview": "This portfolio thinks in spreads, not screens. The design logic is borrowed from editorial print: generous white space, a single typeface held to strict weight contrast, borders drawn in one color only. Aimee's work — full-color, conceptually dense, genre-spanning — needs a neutral to land against. The portfolio IS that neutral. It has no aesthetic agenda of its own; it creates the conditions for the work to be seen.\n\nThe personality is warm professional: rigorous enough to signal craft, restrained enough to stay out of the work's way. Nothing performs. The typewriter hero names the person. Everything after is curation.",
+    "overview": "This portfolio thinks in spreads, not screens. The logic is borrowed from editorial print: generous white space, two typefaces held to strict roles, borders drawn in one color only. Aimee's work, full-color and conceptually dense across genres, needs a neutral to land against. The portfolio IS that neutral. It has no aesthetic agenda of its own; it creates the conditions for the work to be seen.\n\nThe personality is warm professional: rigorous enough to signal craft, restrained enough to stay out of the work's way. Nothing performs. The typewriter hero names the person. Everything after is curation.",
     "keyCharacteristics": [
-      "Single typeface (Inter), three weights, strict scale",
-      "Ink-only palette — no accent, no tint, no gradient on type",
-      "8px card grid creates visual compression; 120px page margins create air",
-      "Borders as the only structural signal — no shadow, no blur, no surface lifting",
-      "Motion is earned: the typewriter intro has permission; scroll animations have a low bar; decoration has none"
+      "Two typefaces in absolute roles: Source Serif 4 carries identity, Inter carries function",
+      "Ink-only palette, two values plus one muted secondary, no accent and no gradient on type",
+      "8px card grid creates compression; 120px desktop margins create air; mobile collapses to 16px",
+      "Borders are the only structural signal: no shadow, no blur, no surface lifting",
+      "Motion is earned: the typewriter intro has permission, scroll reveals have a low bar, decoration has none"
     ],
     "rules": [
-      {
-        "name": "The Editorial Monochrome Rule",
-        "body": "There is no accent color. Introducing any tint breaks the neutrality that makes work images read. If a design reach for a color, ask what it adds that the work doesn't already supply. The answer is almost always: nothing.",
-        "section": "colors"
-      },
-      {
-        "name": "The Scrim Exception",
-        "body": "The one permitted gradient is the card label overlay: linear-gradient(to top, rgba(0,0,0,0.6), transparent). It is functional (legibility), not decorative. It does not set a precedent for gradients elsewhere.",
-        "section": "colors"
-      },
-      {
-        "name": "The Weight Ladder Rule",
-        "body": "Hierarchy is built through size and weight contrast only — never color, never decoration. Each step down the type scale must be visually distinct without relying on anything but scale ratio (≥1.25) and weight shift (400 → 500 → 700).",
-        "section": "typography"
-      },
-      {
-        "name": "The Uppercase Micro Rule",
-        "body": "text-transform: uppercase is permitted only at Label-micro (10px card categories). At any larger size, uppercase text fights the editorial register. Prohibited in headings, nav, body, and button labels.",
-        "section": "typography"
-      }
+      { "name": "The Editorial Monochrome Rule",   "body": "There is no accent color. Introducing any tint, even a muted one, breaks the neutrality that makes the work images read.", "section": "colors" },
+      { "name": "The Warm-Tinted Neutral Rule",    "body": "No pure #000 or #fff in any UI surface. Every neutral carries a low-chroma warm hue (≤0.008 chroma, hue 40–80°).", "section": "colors" },
+      { "name": "The OKLCH-First Rule",            "body": "Color tokens are authored in OKLCH and gated behind @supports. Hex fallbacks sit at the top of the cascade so legacy browsers degrade gracefully.", "section": "colors" },
+      { "name": "The Color-Not-Opacity Rule",      "body": "Secondary emphasis is carried by the Ink Muted token, never by opacity: 0.55 on Ink. Opacity-as-mute compounds and fails AA below 16px.", "section": "colors" },
+      { "name": "The Two-Layer Rule",              "body": "Source Serif 4 is identity. Inter is function. Don't apply the serif to nav, buttons, or anything transactional. Don't apply Inter to the hero name or capabilities headings.", "section": "typography" },
+      { "name": "The Hierarchy Ratio Rule",        "body": "The name-to-subtitle ratio must remain ≥ 2.5:1 at any viewport. Preserve this when adjusting clamp values.", "section": "typography" },
+      { "name": "The Uppercase Micro Rule",        "body": "text-transform: uppercase is permitted only at Label micro (10px section marks and marginalia). Prohibited above that size.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule",        "body": "Surfaces are flat at rest. The only response to interaction is scale (cards), opacity (links), or border emphasis (focus). No hover shadows.", "section": "elevation" }
     ],
     "dos": [
       "Do let work images be the dominant element on every screen. The UI is the frame; the work is the art.",
-      "Do use generous page margins (120px desktop) as a first response to 'this feels crowded.'",
-      "Do use cubic-bezier(0.22, 1, 0.36, 1) easing for all transitions involving movement.",
-      "Do follow focus-visible with outline: 2px solid #000000 on every interactive element.",
-      "Do use Label-micro (10px / uppercase / 0.08em tracking) only for card category strings.",
-      "Do collapse the asymmetric grid gracefully at breakpoints — the editorial composition should survive at every width."
+      "Do use generous page margins (--page-padding: 120px desktop, 24px tablet, 16px mobile) as a first response to 'this feels crowded.'",
+      "Do use cubic-bezier(0.22, 1, 0.36, 1) (ease-out-expo) for all transitions involving movement.",
+      "Do follow focus-visible with outline: 2px solid var(--color-ink) on every interactive element — 2px offset on inline links, 4px on cards and CTAs.",
+      "Do carry secondary emphasis via the Ink Muted token (var(--color-ink-muted)), never opacity: 0.55 on Ink.",
+      "Do use Label micro (10px / uppercase / 0.08–0.14em tracking) only for section marks and marginalia kickers.",
+      "Do apply the CLS-safe sizer pattern (grid-stacked aria-hidden sizer + typed span) to any future text animation that mutates content over time.",
+      "Do ensure every interactive element on mobile is at least 44×44px."
     ],
     "donts": [
       "Don't introduce an accent color. The Editorial Monochrome rule stands.",
       "Don't use gradient text (background-clip: text with any gradient). Prohibited regardless of context.",
       "Don't use border-left or border-right greater than 1px as a colored stripe on any card, callout, or list item.",
+      "Don't add overlay scrims or in-card label gradients on work cards. Cards are pure image; metadata lives in the marginalia caption above.",
       "Don't add animation that performs rather than communicates. If the motion would be better still, it should be still.",
       "Don't replicate Behance or Dribbble aesthetics — shiny hover effects, drop shadows on every card, gradient overlays as style.",
       "Don't use scrolljacking, parallax on text, or particle effects.",
       "Don't use text-transform: uppercase above 10px.",
+      "Don't mute text with opacity (the alpha compounds and fails AA). Use the Ink Muted color token.",
+      "Don't ship interactive elements smaller than 44×44px on mobile.",
+      "Don't use em dashes in any user-facing copy. Use commas, colons, semicolons, periods, or parentheses.",
       "Don't add cards inside cards, or nest containers that already have padding.",
       "Don't add a dark mode speculatively. A dark variant requires a full design pass, not a CSS variable swap."
     ]

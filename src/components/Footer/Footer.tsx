@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import LinkedInIcon from "@/components/icons/LinkedInIcon";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
@@ -23,7 +22,7 @@ export default function Footer() {
         className={styles.social}
         aria-label="Aimee Marcos on LinkedIn"
       >
-        <FontAwesomeIcon icon={faLinkedin} className={styles.icon} />
+        <LinkedInIcon size={20} className={styles.icon} />
       </a>
     </motion.footer>
   );

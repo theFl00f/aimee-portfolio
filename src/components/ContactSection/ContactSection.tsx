@@ -1,7 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import LinkedInIcon from '@/components/icons/LinkedInIcon';
 import Picture from '@/components/Picture';
 import styles from './ContactSection.module.css';
 
@@ -24,7 +23,7 @@ const portraitVariants = {
 
 export default function ContactSection() {
   return (
-    <section id="contact" className={styles.contact}>
+    <section id="contact" aria-labelledby="contact-heading" className={styles.contact}>
       <motion.p
         className={styles.sectionMark}
         initial={{ opacity: 0 }}
@@ -41,7 +40,7 @@ export default function ContactSection() {
         viewport={{ once: true, margin: '-60px' }}
       >
         <div className={styles.body}>
-          <motion.h2 className={styles.heading} variants={itemVariants}>
+          <motion.h2 id="contact-heading" className={styles.heading} variants={itemVariants}>
             say hello
           </motion.h2>
           <motion.p className={styles.invite} variants={itemVariants}>
@@ -57,7 +56,7 @@ export default function ContactSection() {
             variants={itemVariants}
             aria-label="Aimee Marcos on LinkedIn (opens in a new tab)"
           >
-            <FontAwesomeIcon icon={faLinkedin} className={styles.ctaIcon} aria-hidden />
+            <LinkedInIcon size={16} className={styles.ctaIcon} />
             <span className={styles.ctaLabel}>LinkedIn</span>
             <span className={styles.ctaArrow} aria-hidden>↗</span>
           </motion.a>
@@ -67,7 +66,7 @@ export default function ContactSection() {
           <div className={styles.portraitFrame}>
             <Picture
               src="/about/aimee.jpg"
-              alt="Aimee Marcos"
+              alt=""
               fill
               sizes="(max-width: 768px) 160px, (max-width: 1023px) 200px, 240px"
             />
