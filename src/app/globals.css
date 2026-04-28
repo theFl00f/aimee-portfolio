@@ -9,6 +9,9 @@
   /* Muted ink for secondary text. Authored to clear WCAG AA (4.5:1) on --color-page
      at body and micro-label sizes — replaces the previous opacity-as-color pattern. */
   --color-ink-muted: #595551;
+  /* Muted page for secondary text on dark (ink) surfaces. Mirrors --color-ink-muted
+     symmetrically: oklch(65%) vs oklch(42%). Clears WCAG AA against --color-ink (~7:1). */
+  --color-page-muted: #9a9794;
   --color-ash: #e4e1dc;
   --page-padding: 120px;
   --nav-height: 82px;
@@ -19,6 +22,7 @@
     --color-page: oklch(97% 0.008 80);
     --color-ink: oklch(8% 0.008 40);
     --color-ink-muted: oklch(42% 0.008 40);
+    --color-page-muted: oklch(65% 0.008 80);
     --color-ash: oklch(91% 0.007 75);
   }
 }
