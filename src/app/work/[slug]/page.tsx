@@ -1,4 +1,3 @@
-// src/app/work/[slug]/page.tsx
 import { notFound } from 'next/navigation';
 import Picture from '@/components/Picture';
 import FadeUp from '@/components/FadeUp';
@@ -17,11 +16,10 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
   return (
     <main className={styles.page}>
 
-      {/* Hero — no animation, priority-loaded above the fold */}
       <div className={styles.hero}>
         <Picture
           src={item.heroImage}
-          alt={item.title}
+          alt=""
           fill
           sizes="(max-width: 479px) calc(100vw - 32px), (max-width: 1023px) calc(100vw - 48px), calc(100vw - 240px)"
           className={styles.heroImg}
@@ -30,7 +28,6 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
         />
       </div>
 
-      {/* Intro — black background, 2-col, white text */}
       <FadeUp className={styles.intro}>
         <div className={styles.introInner}>
           <div className={styles.introMeta}>
@@ -44,32 +41,29 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
         </div>
       </FadeUp>
 
-      {/* Gallery 2-col (Marginalia logo panels only) */}
       {item.galleryImages.length > 0 && (
         <div className={styles.gallery}>
           {item.galleryImages.map((src, i) => (
             <FadeUp key={src} className={styles.galleryItem} delay={i * 0.09}>
-              <Picture src={src} alt={`${item.title} gallery`} fill placeholder="blur" sizes="(max-width: 768px) 100vw, 50vw" className={styles.galleryImg} />
+              <Picture src={src} alt="" fill placeholder="blur" sizes="(max-width: 768px) 100vw, 50vw" className={styles.galleryImg} />
             </FadeUp>
           ))}
         </div>
       )}
 
-      {/* Palette — Marginalia only */}
       {params.slug === 'marginalia' && (
         <FadeUp>
           <PaletteSection />
         </FadeUp>
       )}
 
-      {/* Gallery wide — full content-width, natural aspect ratio */}
       {item.wideImages && item.wideImages.length > 0 && (
         <div className={styles.galleryWide}>
           {item.wideImages.map((src, i) => (
             <FadeUp key={src} delay={i * 0.08}>
               <Picture
                 src={src}
-                alt={`${item.title} — project image`}
+                alt=""
                 width={1200}
                 height={630}
                 placeholder="blur"
@@ -80,7 +74,6 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
         </div>
       )}
 
-      {/* Outcome */}
       <FadeUp>
         <section className={styles.outcomeSection}>
           <div className={styles.outcomeSectionInner}>
@@ -95,7 +88,7 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
               />
               <Picture
                 src={item.outcomeImage}
-                alt={`${item.title} — outcome`}
+                alt=""
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className={styles.sectionImg}
@@ -111,7 +104,6 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
         </section>
       </FadeUp>
 
-      {/* Reflections */}
       <FadeUp delay={0.05}>
         <section className={styles.reflectionsSection}>
           <div className={styles.reflectionsSectionInner}>
@@ -126,7 +118,7 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
               />
               <Picture
                 src={item.reflectionsImage}
-                alt={`${item.title} — reflections`}
+                alt=""
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className={styles.sectionImg}

@@ -15,6 +15,20 @@ This is a graphic design portfolio (brand register). See `PRODUCT.md` for strate
 
 Before working on any visual feature, load: `PRODUCT.md` + `DESIGN.md`.
 
+## Worktree Discipline
+
+When working from a `.claude/worktrees/<name>/` path, ALL commands (`npm run dev`, `npm install`, `npx playwright test`, edits, git ops) must run inside that worktree directory — never the main checkout.
+
+If a dev server is already running on port 3000, confirm its `cwd` matches the current worktree before reusing it:
+
+```bash
+lsof -p $(lsof -ti:3000) 2>/dev/null | grep cwd
+```
+
+If it points at a different worktree (or the main checkout), kill it (`lsof -ti:3000 | xargs kill -9`) and start a fresh one from the current worktree. A stale server from another branch will serve outdated code and waste verification time.
+
+After `npm install`/`npm uninstall`, always restart the dev server (`rm -rf .next && npm run dev`) — Next.js dev mode caches compiled modules and will keep serving removed packages until restarted.
+
 ## Browser Verification
 
 **Never use `preview_start` or any `preview_*` tools.** Use Playwright instead.

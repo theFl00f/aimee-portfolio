@@ -88,26 +88,29 @@ export default function Hero() {
     <section id="hero" className={styles.hero}>
       <h1 className={styles.h1}>
         <span className={styles.name}>
-          {text}
-          <AnimatePresence>
-            {phase !== 'done' && (
-              <motion.span
-                key="caret"
-                className={styles.caretWrap}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                <span className={styles.caret} />
-              </motion.span>
-            )}
-          </AnimatePresence>
+          <span className={styles.nameSizer} aria-hidden="true">{FULL_NAME}</span>
+          <span className={styles.nameTyped} aria-label={FULL_NAME}>
+            {text}
+            <AnimatePresence>
+              {phase !== 'done' && (
+                <motion.span
+                  key="caret"
+                  className={styles.caretWrap}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <span className={styles.caret} />
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </span>
         </span>
       </h1>
 
       <motion.p
         className={styles.title}
         initial={{ opacity: 0, y: 20 }}
-        animate={restVisible ? { opacity: 0.55, y: 0 } : { opacity: 0, y: 20 }}
+        animate={restVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.8, ease }}
       >
         Graphic Designer

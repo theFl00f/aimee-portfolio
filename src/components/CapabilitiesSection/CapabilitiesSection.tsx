@@ -42,7 +42,7 @@ const containerVariants = {
 
 export default function CapabilitiesSection() {
   return (
-    <section id="capabilities" className={styles.capabilities}>
+    <section id="capabilities" aria-label="Capabilities and strategic strengths" className={styles.capabilities}>
       <motion.p
         className={styles.sectionMark}
         initial={{ opacity: 0 }}

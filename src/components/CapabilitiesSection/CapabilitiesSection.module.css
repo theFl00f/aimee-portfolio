@@ -8,7 +8,7 @@
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  opacity: 0.35;
+  color: var(--color-ink-muted);
   margin-bottom: 32px;
 }
 

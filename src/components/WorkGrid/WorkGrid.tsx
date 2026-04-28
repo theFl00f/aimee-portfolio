@@ -38,12 +38,6 @@ const reducedVariants = {
   visible: { opacity: 1, transition: { duration: 0.4 } },
 };
 
-function buildMarginalia(item?: WorkItem): string | null {
-  if (!item) return null;
-  const tag = item.categories.split('·')[0]?.trim().toUpperCase() ?? '';
-  return `${item.year} · ${tag}`;
-}
-
 interface CellProps {
   variant: CardVariant;
   item?: WorkItem;
@@ -51,7 +45,7 @@ interface CellProps {
 }
 
 function Cell({ variant, item, reduced }: CellProps) {
-  const caption = buildMarginalia(item);
+  const caption = item?.title ?? null;
 
   return (
     <motion.div className={styles.cell} variants={reduced ? reducedVariants : developVariants}>
@@ -79,7 +73,7 @@ export default function WorkGrid() {
   const wrapperStyle = reduced ? undefined : { y: drift };
 
   return (
-    <section id="work" className={styles.work}>
+    <section id="work" aria-label="Selected work" className={styles.work}>
       <motion.p
         className={styles.sectionMark}
         initial={{ opacity: 0 }}

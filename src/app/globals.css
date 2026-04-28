@@ -6,9 +6,10 @@
 :root {
   --color-page: #f8f5ef;
   --color-ink: #030101;
+  /* Muted ink for secondary text. Authored to clear WCAG AA (4.5:1) on --color-page
+     at body and micro-label sizes — replaces the previous opacity-as-color pattern. */
+  --color-ink-muted: #595551;
   --color-ash: #e4e1dc;
-  /* Named per DESIGN.md "The Scrim Exception": functional gradient for card label legibility only */
-  --color-scrim: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
   --page-padding: 120px;
   --nav-height: 82px;
 }
@@ -17,6 +18,7 @@
   :root {
     --color-page: oklch(97% 0.008 80);
     --color-ink: oklch(8% 0.008 40);
+    --color-ink-muted: oklch(42% 0.008 40);
     --color-ash: oklch(91% 0.007 75);
   }
 }

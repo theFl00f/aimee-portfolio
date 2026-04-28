@@ -8,7 +8,7 @@
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  opacity: 0.35;
+  color: var(--color-ink-muted);
   margin-bottom: 32px;
 }
 
@@ -64,6 +64,7 @@
 }
 
 .ctaIcon {
+  display: block;
   width: 16px;
   height: 16px;
 }
@@ -112,7 +113,7 @@
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  opacity: 0.55;
+  color: var(--color-ink-muted);
 }
 
 @media (max-width: 1023px) {
