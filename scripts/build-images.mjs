@@ -114,7 +114,7 @@ async function processImage(srcAbs) {
     }
   }
 
-  const blurBuffer = await sharp(srcAbs).resize(16).webp({ quality: 30 }).toBuffer();
+  const blurBuffer = await sharp(srcAbs).resize(40).webp({ quality: 30 }).toBuffer();
   const blurDataURL = `data:image/webp;base64,${blurBuffer.toString('base64')}`;
 
   return {

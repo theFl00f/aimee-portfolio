@@ -4,6 +4,8 @@ export type CardVariant =
   | "portrait"
   | "wide-landscape-tall";
 
+export type PaletteChip = { hex: string; name?: string; textLight: boolean };
+
 export interface WorkItem {
   slug: string;
   title: string;
@@ -15,10 +17,16 @@ export interface WorkItem {
   coverImage: string;
   coverPosition?: string;
   heroImage: string;
+  heroImageAlt: string;
   galleryImages: string[];
+  galleryImagesAlt: string[];
   wideImages?: string[];
+  wideImagesAlt?: string[];
   outcomeImage: string;
+  outcomeImageAlt: string;
   reflectionsImage: string;
+  reflectionsImageAlt: string;
+  brandPalette?: PaletteChip[];
   variant: CardVariant;
 }
 
@@ -37,16 +45,37 @@ export const WORK_ITEMS: WorkItem[] = [
       "This exploration showed me the potential of marginalia not just as design inspiration but as a storytelling framework. While the initial system is anchored in Monk Cat, I see opportunity to evolve the world by introducing additional characters and weaving them into a narrative that extends across platforms. In the future, I would like to expand the Marginalia brand into a full character set with layered storylines, opening the door for applications beyond print and digital, potentially even into animation, merchandise, or a serialized TV adaptation. This project has underscored the strength of building brands with both cultural depth and narrative elasticity.",
     coverImage: "/work/marginalia/storefront.png",
     heroImage: "/work/marginalia/storefront-wide.png",
+    heroImageAlt:
+      "Marginalia bookstore storefront with brand signage and window graphics applied",
     galleryImages: [
       "/work/marginalia/logo-crest.png",
       "/work/marginalia/logo-monk-cat.png",
+    ],
+    galleryImagesAlt: [
+      "Marginalia crest logo combining gothic letterforms with a medieval manuscript motif",
+      "Monk Cat mascot logo: a stylised feline drawn in the spirit of medieval illuminated manuscript doodles",
     ],
     wideImages: [
       "/work/marginalia/brand-collateral.png",
       "/work/marginalia/moodboard.png",
     ],
+    wideImagesAlt: [
+      "Brand collateral spread showing tote bags, bookmarks, and packaging with Marginalia identity",
+      "Research moodboard drawing on medieval manuscript marginalia, contemporary streetwear, and editorial typography",
+    ],
     outcomeImage: "/work/marginalia/lifestyle.png",
+    outcomeImageAlt:
+      "Lifestyle mockup of Marginalia branded tote bag and packaging in an urban setting",
     reflectionsImage: "/work/marginalia/storefront.png",
+    reflectionsImageAlt:
+      "Marginalia storefront with brand applications across signage, window display, and environmental graphics",
+    brandPalette: [
+      { hex: "#2B6C4D", textLight: true },
+      { hex: "#29333E", textLight: true },
+      { hex: "#E8E3D1", textLight: false },
+      { hex: "#DA2127", textLight: true },
+      { hex: "#DBB767", textLight: false },
+    ],
     variant: "wide-landscape",
   },
   {
@@ -63,14 +92,26 @@ export const WORK_ITEMS: WorkItem[] = [
     coverImage: "/work/mycelium/mycelium-hero.png",
     coverPosition: "64% 50%",
     heroImage: "/work/mycelium/mycelium-hero.png",
+    heroImageAlt:
+      "Verae magazine cover for the Purple Haze issue, featuring fungi-inspired fashion editorial photography",
     galleryImages: [],
+    galleryImagesAlt: [],
     wideImages: [
       "/work/mycelium/magazine-spread.png",
       "/work/mycelium/feature-spread.png",
       "/work/mycelium/moodboard.png",
     ],
+    wideImagesAlt: [
+      "Verae magazine editorial spread with layered typography and psychedelic botanical imagery",
+      "Mycelium Underground feature spread pairing mushroom-inspired couture with overlapping typographic columns",
+      "Art direction moodboard merging psychedelic colour, fungal forms, and high-fashion reference imagery",
+    ],
     outcomeImage: "/work/mycelium/cover-stack.png",
+    outcomeImageAlt:
+      "Stack of Verae magazine issues showing the cover system and spine design",
     reflectionsImage: "/work/mycelium/editorial-portrait.png",
+    reflectionsImageAlt:
+      "Editorial portrait spread from Mycelium Underground, combining fashion photography with typographic overlays",
     variant: "square",
   },
   {
@@ -87,14 +128,26 @@ export const WORK_ITEMS: WorkItem[] = [
       "Adapting SAP's evolving brand to the design of partner awards highlighted the importance of clarity and restraint in visual storytelling. By moving away from decorative symbolism and leaning into transparency, depth, and the distinctive SAP blue, I was able to create objects that felt both more authentic and more aligned with the company's refreshed identity. This project reminded me how design choices, even subtle ones, shape not just aesthetics but also how recognition is experienced and valued.",
     coverImage: "/work/sap-gpo-hall-of-fame/celebration.png",
     heroImage: "/work/sap-gpo-hall-of-fame/celebration-wide.png",
+    heroImageAlt:
+      "SAP Global Partner Organization Hall of Fame award ceremony scene with branded stage and backdrop",
     galleryImages: [],
+    galleryImagesAlt: [],
     wideImages: [
       "/work/sap-gpo-hall-of-fame/award-comparison.png",
       "/work/sap-gpo-hall-of-fame/hall-of-fame.png",
       "/work/sap-gpo-hall-of-fame/brand-system.png",
     ],
+    wideImagesAlt: [
+      "Before and after comparison of SAP Hall of Fame trophy designs: the 2018 decorative style alongside the 2024 glass and dimensionality approach",
+      "SAP Hall of Fame digital banner and recognition page layout with updated brand identity",
+      "SAP partner awards brand system showing badge, email template, and wiki layout components",
+    ],
     outcomeImage: "/work/sap-gpo-hall-of-fame/event-stage.png",
+    outcomeImageAlt:
+      "SAP awards event stage with Hall of Fame branding projected during a partner recognition ceremony",
     reflectionsImage: "/work/sap-gpo-hall-of-fame/celebration.png",
+    reflectionsImageAlt:
+      "SAP Global Partner Organization celebration scene with Hall of Fame award recipients",
     variant: "square",
   },
 ];

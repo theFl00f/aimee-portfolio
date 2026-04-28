@@ -1,18 +1,11 @@
+import type { PaletteChip } from '@/data/work';
 import styles from './PaletteSection.module.css';
 
-const PALETTE = [
-  { hex: '#2B6C4D', textLight: true },
-  { hex: '#29333E', textLight: true },
-  { hex: '#E8E3D1', textLight: false },
-  { hex: '#DA2127', textLight: true },
-  { hex: '#DBB767', textLight: false },
-];
-
-export default function PaletteSection() {
+export default function PaletteSection({ palette }: { palette: PaletteChip[] }) {
   return (
     <section className={styles.paletteSection} aria-label="Brand Palette">
       <div className={styles.grid}>
-        {PALETTE.map(({ hex, textLight }) => (
+        {palette.map(({ hex, textLight }) => (
           <div
             key={hex}
             className={`${styles.chip} ${textLight ? styles.textLight : styles.textDark}`}
