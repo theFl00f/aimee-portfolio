@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import Picture from '@/components/Picture';
+import AmLogo from '@/components/AmLogo';
 import styles from './Nav.module.css';
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -18,7 +18,7 @@ export default function Nav() {
       transition={{ duration: 0.4, ease }}
     >
       <a href="/" className={styles.logo} aria-label="Aimee Marcos home">
-        <Picture src="/logo/am-logo.png" alt="" width={500} height={500} className={styles.logoImg} />
+        <AmLogo className={styles.logoImg} />
       </a>
       <button
         className={styles.toggle}
