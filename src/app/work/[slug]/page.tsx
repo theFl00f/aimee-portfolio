@@ -49,16 +49,17 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
       </div>
 
       <FadeUp className={styles.intro}>
-        <div className={styles.introInner}>
+        <section className={styles.introInner} aria-labelledby="overview-heading">
           <div className={styles.introMeta}>
             <h1 className={styles.title}>{item.title}</h1>
             <p className={styles.categories}>{item.categories}</p>
           </div>
           <div className={styles.introOverview}>
-            <h2 className={styles.introLabel}>01 / overview</h2>
+            <h2 id="overview-heading" className="visually-hidden">Overview</h2>
+            <p aria-hidden="true" className={styles.introLabel}>01 / overview</p>
             <p className={styles.introBody}>{item.overview}</p>
           </div>
-        </div>
+        </section>
       </FadeUp>
 
       {item.galleryImages.length > 0 && (
@@ -96,7 +97,7 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
       )}
 
       <FadeUp>
-        <section className={styles.outcomeSection}>
+        <section className={styles.outcomeSection} aria-labelledby="outcome-heading">
           <div className={styles.outcomeSectionInner}>
             <div
               className={styles.sectionImageWrap}
@@ -112,7 +113,8 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
               />
             </div>
             <div className={styles.sectionText}>
-              <h2 className={styles.sectionLabel}>02 / outcome</h2>
+              <h2 id="outcome-heading" className="visually-hidden">Outcome</h2>
+              <p aria-hidden="true" className={styles.sectionLabel}>02 / outcome</p>
               <p className={styles.sectionBody}>{item.outcome}</p>
             </div>
           </div>
@@ -120,7 +122,7 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
       </FadeUp>
 
       <FadeUp delay={0.05}>
-        <section className={styles.reflectionsSection}>
+        <section className={styles.reflectionsSection} aria-labelledby="reflections-heading">
           <div className={styles.reflectionsSectionInner}>
             <div
               className={styles.sectionImageWrap}
@@ -136,7 +138,8 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
               />
             </div>
             <div className={styles.sectionText}>
-              <h2 className={styles.sectionLabel}>03 / reflections</h2>
+              <h2 id="reflections-heading" className="visually-hidden">Reflections</h2>
+              <p aria-hidden="true" className={styles.sectionLabel}>03 / reflections</p>
               <p className={styles.sectionBody}>{item.reflections}</p>
             </div>
           </div>
