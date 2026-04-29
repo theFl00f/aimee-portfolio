@@ -3,8 +3,7 @@ import styles from './PaletteSection.module.css';
 
 export default function PaletteSection({ palette }: { palette: PaletteChip[] }) {
   return (
-    <section className={styles.paletteSection} aria-labelledby="brand-palette-kicker">
-      <h2 id="brand-palette-kicker" className={styles.kicker}>brand palette</h2>
+    <section className={styles.paletteSection} aria-label="Brand palette">
       <div className={styles.grid}>
         {palette.map(({ hex, name, textLight }) => (
           <div
