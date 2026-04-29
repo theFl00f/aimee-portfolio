@@ -70,11 +70,11 @@ export const WORK_ITEMS: WorkItem[] = [
     reflectionsImageAlt:
       "Marginalia storefront with brand applications across signage, window display, and environmental graphics",
     brandPalette: [
-      { hex: "#2B6C4D", textLight: true },
-      { hex: "#29333E", textLight: true },
-      { hex: "#E8E3D1", textLight: false },
-      { hex: "#DA2127", textLight: true },
-      { hex: "#DBB767", textLight: false },
+      { name: "Verdant Leaf",    hex: "#2B6C4D", textLight: true },
+      { name: "Midnight Notes",  hex: "#29333E", textLight: true },
+      { name: "Parchment Light", hex: "#E8E3D1", textLight: false },
+      { name: "Seal Wax",        hex: "#DA2127", textLight: true },
+      { name: "Gold Ochre",      hex: "#DBB767", textLight: false },
     ],
     variant: "wide-landscape",
   },

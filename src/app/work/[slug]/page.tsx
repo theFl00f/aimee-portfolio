@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Picture from '@/components/Picture';
 import FadeUp from '@/components/FadeUp';
@@ -12,8 +13,16 @@ export function generateStaticParams() {
 }
 
 export default function WorkPage({ params }: { params: { slug: string } }) {
-  const item = WORK_ITEMS.find((w) => w.slug === params.slug);
-  if (!item) notFound();
+  const currentIndex = WORK_ITEMS.findIndex((w) => w.slug === params.slug);
+  if (currentIndex === -1) notFound();
+  const item = WORK_ITEMS[currentIndex];
+  const total = WORK_ITEMS.length;
+  const prevIndex = (currentIndex - 1 + total) % total;
+  const nextIndex = (currentIndex + 1) % total;
+  const prevItem = WORK_ITEMS[prevIndex];
+  const nextItem = WORK_ITEMS[nextIndex];
+  const isWrapBack = currentIndex === 0;
+  const isWrapForward = currentIndex === total - 1;
 
   const toBlurSrc = (src: string) => {
     const entry = imageManifest[src];
@@ -46,7 +55,7 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
             <p className={styles.categories}>{item.categories}</p>
           </div>
           <div className={styles.introOverview}>
-            <h2 className={styles.introLabel}>Project Overview</h2>
+            <h2 className={styles.introLabel}>01 / overview</h2>
             <p className={styles.introBody}>{item.overview}</p>
           </div>
         </div>
@@ -103,7 +112,7 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
               />
             </div>
             <div className={styles.sectionText}>
-              <h2 className={styles.sectionLabel}>Outcome</h2>
+              <h2 className={styles.sectionLabel}>02 / outcome</h2>
               <p className={styles.sectionBody}>{item.outcome}</p>
             </div>
           </div>
@@ -127,9 +136,79 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
               />
             </div>
             <div className={styles.sectionText}>
-              <h2 className={styles.sectionLabel}>Reflections</h2>
+              <h2 className={styles.sectionLabel}>03 / reflections</h2>
               <p className={styles.sectionBody}>{item.reflections}</p>
             </div>
+          </div>
+        </section>
+      </FadeUp>
+
+      <FadeUp delay={0.05}>
+        <section className={styles.closing} aria-label="Continue browsing">
+          <div className={styles.closingGrid}>
+            <Link
+              href={`/work/${prevItem.slug}`}
+              className={`${styles.cell} ${styles.cellPrev}`}
+              aria-label={`${isWrapBack ? 'Skip to the end: ' : 'Previous project: '}${prevItem.title}`}
+            >
+              <span className={styles.cellKicker}>
+                <span className={styles.role}>
+                  {isWrapBack ? (
+                    <>
+                      <span aria-hidden className={styles.wrapGlyph}>↺</span> from the end
+                    </>
+                  ) : (
+                    <>
+                      <span aria-hidden className={styles.dirArrow}>←</span> previous
+                    </>
+                  )}
+                </span>
+                <span className={styles.cellName}>{prevItem.title}</span>
+              </span>
+              <div className={styles.cellImage}>
+                <Picture
+                  src={prevItem.coverImage}
+                  alt=""
+                  fill
+                  placeholder="blur"
+                  sizes="(max-width: 768px) 100vw, 320px"
+                  className={styles.cellImg}
+                  objectPosition={prevItem.coverPosition}
+                />
+              </div>
+            </Link>
+
+            <Link
+              href={`/work/${nextItem.slug}`}
+              className={`${styles.cell} ${styles.cellNext}`}
+              aria-label={`${isWrapForward ? 'Back to the start: ' : 'Next project: '}${nextItem.title}`}
+            >
+              <span className={styles.cellKicker}>
+                <span className={styles.role}>
+                  {isWrapForward ? (
+                    <>
+                      <span aria-hidden className={styles.wrapGlyph}>↻</span> again, from the top
+                    </>
+                  ) : (
+                    <>
+                      next <span aria-hidden className={styles.dirArrow}>→</span>
+                    </>
+                  )}
+                </span>
+                <span className={styles.cellName}>{nextItem.title}</span>
+              </span>
+              <div className={styles.cellImage}>
+                <Picture
+                  src={nextItem.coverImage}
+                  alt=""
+                  fill
+                  placeholder="blur"
+                  sizes="(max-width: 768px) 100vw, 320px"
+                  className={styles.cellImg}
+                  objectPosition={nextItem.coverPosition}
+                />
+              </div>
+            </Link>
           </div>
         </section>
       </FadeUp>
