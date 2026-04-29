@@ -114,6 +114,12 @@ All neutrals are tinted toward warm hues, never pure `#000` or `#fff`. OKLCH is 
 - **Page** (`oklch(97% 0.008 80)`, fallback `#f8f5ef`): all surfaces and backgrounds. Near-white with a faint cream warmth, the temperature of uncoated stock, not a monitor's backlight.
 - **Ash** (`oklch(91% 0.007 75)`, fallback `#e4e1dc`): card placeholder background, visible only while a cover image loads, plus the portrait frame in Contact. Warm gray, consistent with the page temperature.
 
+### Derived surfaces (case-study slabs)
+
+Case-study pages may interpolate along the Ash→Page axis to produce additional warm-tinted slab surfaces, keeping the editorial-print rhythm without introducing new global neutrals. The pattern is `color-mix(in oklch, var(--color-ash) N%, var(--color-page))` with a computed sRGB hex fallback. These derived values stay local to the page module that uses them and carry page-specific names (e.g. `--color-outcome-bg`); they are intentionally NOT promoted to globals, because their meaning is narrative (which slab in the case-study sequence) rather than systemic.
+
+Currently in use on `[slug]/page.module.css`: `--color-outcome-bg` (62% Ash) and `--color-reflections-bg` (48% Ash).
+
 ### Named Rules
 
 **The Editorial Monochrome Rule.** There is no accent color. Introducing any tint, even a muted one, breaks the neutrality that makes the work images read. If a future design reaches for a color, ask what it adds that the work doesn't already supply. The answer is almost always: nothing.

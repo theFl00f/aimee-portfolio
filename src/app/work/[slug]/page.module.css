@@ -1,4 +1,8 @@
 .page {
+  /* Two warm-tinted surfaces interpolated along the Ash→Page axis, used to give
+     the case study an editorial slab cadence. Local on purpose: names carry
+     page-specific intent (outcome, reflections) that doesn't belong in globals.
+     Hex fallbacks below are computed sRGB equivalents of the OKLCH color-mix. */
   --color-outcome-bg: #ece9e3;
   --color-reflections-bg: #eeebe6;
   --slab-pad-x: 48px;
@@ -22,6 +26,7 @@
   margin: 0 var(--page-padding);
   width: calc(100% - 2 * var(--page-padding));
   aspect-ratio: 1200 / 196;
+  min-height: 180px;
   overflow: hidden;
   background: var(--color-ash);
 }
@@ -377,6 +382,13 @@
   .closingGrid {
     grid-template-columns: minmax(0, 320px);
     gap: 20px;
+  }
+
+  .cellName {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    min-height: 2.6em;
   }
 }
 
