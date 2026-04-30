@@ -306,11 +306,17 @@
   font-weight: 500;
 }
 
+/* Allow long project titles ("Verae: Mycelium Underground") to wrap onto a
+   second line on desktop instead of clipping with an ellipsis. Capped at two
+   lines as a defensive guard so an abnormally long title still keeps the
+   closing-nav grid stable in height. */
 .cellName {
-  display: block;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  word-break: break-word;
 }
 
 .wrapGlyph {
@@ -447,9 +453,6 @@
   }
 
   .cellName {
-    white-space: normal;
-    overflow: visible;
-    text-overflow: clip;
     min-height: 2.6em;
   }
 }
