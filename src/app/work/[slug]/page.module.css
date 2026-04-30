@@ -4,7 +4,7 @@
      page-specific intent (outcome, reflections) that doesn't belong in globals.
      Hex fallbacks below are computed sRGB equivalents of the OKLCH color-mix. */
   --color-outcome-bg: #ece9e3;
-  --color-reflections-bg: #eeebe6;
+  --color-reflections-bg: #f3f0ea;
   --slab-pad-x: 48px;
   --slab-pad-y: 48px;
   --slab-gap: 48px;
@@ -15,7 +15,10 @@
 @supports (color: oklch(0% 0 0)) {
   .page {
     --color-outcome-bg: color-mix(in oklch, var(--color-ash) 62%, var(--color-page));
-    --color-reflections-bg: color-mix(in oklch, var(--color-ash) 48%, var(--color-page));
+    /* Reflections sits noticeably closer to Page than Outcome (22% vs 62% Ash).
+       The wider tint spread breaks the twin-slab read and lets the page fade
+       toward the conclusion instead of stamping the same warm tone twice. */
+    --color-reflections-bg: color-mix(in oklch, var(--color-ash) 22%, var(--color-page));
   }
 }
 
@@ -143,28 +146,56 @@
   margin: 0 var(--page-padding);
   padding: var(--slab-pad-y) var(--slab-pad-x);
   display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: var(--slab-gap);
   align-items: stretch;
 }
 
+/* Outcome and Reflections both keep image-left, but the slab *shapes* diverge.
+   Outcome reads as a wide landscape panel (image-dominant, short-and-wide);
+   Reflections reads as a tall portrait panel (text-dominant, narrow-and-tall).
+   Different column ratios + different image aspects = no twin-shape read,
+   even though the image side is constant. */
+
+/* Outcome: image-led. 7:5 column ratio gives the image room; landscape 3:2
+   wrap keeps the slab horizontally proportioned. The "what we made" beat. */
 .outcomeSectionInner {
+  grid-template-columns: 7fr 5fr;
   background: var(--color-outcome-bg);
+  align-items: center;
 }
 
+.outcomeSectionInner .sectionImageWrap {
+  aspect-ratio: 3 / 2;
+  height: auto;
+  min-height: 0;
+}
+
+/* Reflections: text-led. 5:7 inverts the column weight; portrait 3:4 wrap
+   pushes the slab tall. Image stays left for consistency with Outcome and
+   the rest of the page. */
 .reflectionsSectionInner {
+  grid-template-columns: 5fr 7fr;
   background: var(--color-reflections-bg);
+  align-items: start;
+}
+
+.reflectionsSectionInner .sectionImageWrap {
+  aspect-ratio: 3 / 4;
+  height: auto;
+  min-height: 0;
 }
 
 .sectionImageWrap {
   position: relative;
-  height: 100%;
-  min-height: 280px;
   overflow: hidden;
   background: var(--color-ash);
   isolation: isolate;
 }
 
+/* The blurred halo behind the contained image. Committed: pushed past the
+   point where original text or shape detail can survive, then a slab-tinted
+   overlay washes the result so it reads as an intentional chromatic spread,
+   not a leaky mirror. */
 .sectionImageWrap::before {
   content: '';
   position: absolute;
@@ -373,6 +404,16 @@
   .reflectionsSectionInner {
     grid-template-columns: 1fr;
     --slab-gap: 24px;
+  }
+
+  /* Mobile preserves the desktop shape contrast: outcome stays landscape (3/2),
+     reflections stays portrait but eases to 4/5 so the slab doesn't tower. */
+  .outcomeSectionInner .sectionImageWrap {
+    aspect-ratio: 3 / 2;
+  }
+
+  .reflectionsSectionInner .sectionImageWrap {
+    aspect-ratio: 4 / 5;
   }
 
   .closing {
