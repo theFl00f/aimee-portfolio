@@ -433,14 +433,19 @@
     --slab-gap: 24px;
   }
 
-  /* Mobile preserves the desktop shape contrast: outcome stays landscape (3/2),
-     reflections stays portrait but eases to 4/5 so the slab doesn't tower. */
+  /* Mobile rewires the desktop shape contrast through *image weight* instead
+     of orientation. Single-column means we can't preserve image-LEFT vs
+     text-RIGHT, but we can preserve the identity: Outcome = image-led
+     (3:2 holds the room), Reflections = text-led (2:1 reduces the image to a
+     thin framing strip above a long body). At 375 viewport, this makes the
+     reflections image footprint ~25% smaller than outcome — matching the
+     desktop intent rather than inverting it. */
   .outcomeSectionInner .sectionImageWrap {
     aspect-ratio: 3 / 2;
   }
 
   .reflectionsSectionInner .sectionImageWrap {
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 2 / 1;
   }
 
   .closing {
