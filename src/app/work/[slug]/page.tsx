@@ -148,6 +148,7 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
 
       <FadeUp delay={0.05}>
         <section className={styles.closing} aria-label="Continue browsing">
+          <p aria-hidden="true" className={styles.closingMark}>more work</p>
           <div className={styles.closingGrid}>
             <Link
               href={`/work/${prevItem.slug}`}

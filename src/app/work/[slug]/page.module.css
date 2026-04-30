@@ -259,6 +259,23 @@
   margin: 96px var(--page-padding) 64px;
 }
 
+/* Closing-mark vocabulary: deliberately *not* numbered — the closing is nav,
+   not a 4th narrative chapter. The thin Ink rule below the label is the
+   structural anchor that grounds the prev/next cells in the page; without it
+   the closing read as a footer that floats. The label echoes the section-mark
+   typography (Label-micro / Ink Muted) but skips the `NN / ` prefix to keep
+   chapter cadence and nav cadence visibly distinct. */
+.closingMark {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--color-ink);
+  margin-bottom: 32px;
+}
+
 .closingGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 340px));
@@ -450,6 +467,10 @@
 
   .closing {
     margin: 64px var(--page-padding) 48px;
+  }
+
+  .closingMark {
+    margin-bottom: 24px;
   }
 
   .closingGrid {
