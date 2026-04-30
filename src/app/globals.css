@@ -69,6 +69,10 @@ ul { list-style: disc; padding-left: 1.25em; }
   transition: transform 0.15s ease;
 }
 .skip-link:focus { transform: translateY(0); }
+.skip-link:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+}
 
 /* Visually hide an element while keeping it in the accessibility tree.
    Used to provide real semantic headings on sections whose visible label is a
