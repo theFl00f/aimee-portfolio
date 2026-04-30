@@ -142,6 +142,7 @@ Currently in use on `[slug]/page.module.css`: `--color-outcome-bg` (62% Ash) and
 - **Display** (Source Serif 4, 700, `clamp(36px, 4.5vw, 62px)`, lh 1.08, ls -0.02em): hero name only. Fluid across viewports.
 - **Subtitle** (Inter, 400, `clamp(16px, 2vw, 22px)`, lh 1.3, ls +0.01em, color Ink Muted): "Graphic Designer" beneath the name. Color carries the muting; opacity does not.
 - **Section heading** (Source Serif 4, 600, 28px, lh 1.2, ls -0.01em): identity-layer headings only — capabilities, strategic strengths.
+- **Case-study title** (Source Serif 4, 600, `clamp(28px, 3vw, 36px)`, lh 1.15, ls -0.015em): the project name on a work case-study page (h1). Sits between Section heading and Display: serif and 600-weight like Section heading, but fluid and slightly larger because it carries the page's identity. Not 700/Display weight — that role belongs to the hero name on the home page only.
 - **Functional heading** (Inter, 500, 28px, lh 1.3): organizational headings — toolbox. Stays in Inter because it describes process, not identity.
 - **Body** (Inter, 400, 18px, lh 1.6): hero tagline and primary reading copy. Max line length 68ch.
 - **Body small** (Inter, 500, 16px, lh 1.5): list items, capability bullets.
