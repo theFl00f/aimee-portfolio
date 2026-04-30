@@ -41,7 +41,7 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
           src={item.heroImage}
           alt={item.heroImageAlt}
           fill
-          sizes="(max-width: 768px) 1920px, (max-width: 1023px) calc(100vw - 48px), calc(100vw - 240px)"
+          sizes="(max-width: 479px) calc(100vw - 32px), (max-width: 1023px) calc(100vw - 48px), calc(100vw - 240px)"
           className={styles.heroImg}
           placeholder="blur"
           priority
@@ -148,6 +148,7 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
 
       <FadeUp delay={0.05}>
         <section className={styles.closing} aria-label="Continue browsing">
+          <p aria-hidden="true" className={styles.closingMark}>more work</p>
           <div className={styles.closingGrid}>
             <Link
               href={`/work/${prevItem.slug}`}

@@ -9,7 +9,6 @@ export type PaletteChip = { hex: string; name?: string; textLight: boolean };
 export interface WorkItem {
   slug: string;
   title: string;
-  year: string;
   categories: string;
   overview: string;
   outcome: string;
@@ -34,7 +33,6 @@ export const WORK_ITEMS: WorkItem[] = [
   {
     slug: "marginalia",
     title: "Marginalia",
-    year: "2025",
     categories:
       "Branding · Visual Identity · Social Media Marketing · Retail and Environmental Design",
     overview:
@@ -81,7 +79,6 @@ export const WORK_ITEMS: WorkItem[] = [
   {
     slug: "mycelium",
     title: "Verae: Mycelium Underground",
-    year: "2024",
     categories: "Art Direction · Editorial Design · Concept Development",
     overview:
       "Verae is a conceptual fashion magazine exploring style at the intersection of nature, culture, and surrealism. The debut issue, themed Purple Haze, pairs psychedelic aesthetics with forward-looking editorial design. Its centrepiece feature, Mycelium Underground, links fungi-inspired couture with hidden networks of fashion, blending designer gowns, mushroom imagery, and layered typography into immersive spreads. The project includes the cover, table of contents, and feature layouts, simulating a fully realized publication that balances concept with craft.",
@@ -117,7 +114,6 @@ export const WORK_ITEMS: WorkItem[] = [
   {
     slug: "sap-gpo-hall-of-fame",
     title: "SAP GPO Hall of Fame Awards",
-    year: "2024",
     categories:
       "Brand Implementation · Creative Direction · Digital Communication Design",
     overview:
