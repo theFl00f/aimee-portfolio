@@ -34,7 +34,7 @@ export default function PaletteSection({ palette }: { palette: PaletteChip[] }) 
               onClick={() => handleCopy(hex, name)}
               className={`${styles.chip} ${textLight ? styles.textLight : styles.textDark} ${isCopied ? styles.copied : ''}`}
               style={{ background: hex }}
-              aria-label={`Copy ${name ? name + ' ' : ''}${hex} to clipboard`}
+              aria-label={`Copy ${name ?? hex} to clipboard`}
             >
               {name && <span className={styles.name}>{name}</span>}
               <span className={styles.hex} aria-hidden="true">
