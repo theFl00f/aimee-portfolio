@@ -1,16 +1,19 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import LinkedInIcon from "@/components/icons/LinkedInIcon";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <motion.footer
       className={styles.footer}
       initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }}
+      {...(shouldReduceMotion
+        ? { animate: { opacity: 1, y: 0 } }
+        : { whileInView: { opacity: 1, y: 0 }, viewport: { once: true, margin: "-40px" } })}
+      transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }}
     >
       <p className={styles.credit}>
         ©️ Aimee Marcos, {new Date().getFullYear()}

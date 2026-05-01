@@ -35,3 +35,10 @@
 .card:hover .cover {
   transform: scale(1.04);
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .cover {
+    transition: none;
+  }
+}

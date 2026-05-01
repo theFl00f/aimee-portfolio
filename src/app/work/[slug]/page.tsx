@@ -85,8 +85,8 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
               <Picture
                 src={src}
                 alt={item.wideImagesAlt?.[i] ?? ''}
-                width={1200}
-                height={630}
+                width={imageManifest[src]?.width ?? 1200}
+                height={imageManifest[src]?.height ?? 630}
                 placeholder="blur"
                 sizes="(max-width: 479px) calc(100vw - 32px), (max-width: 1023px) calc(100vw - 48px), calc(100vw - 240px)"
                 className={styles.wideImg}

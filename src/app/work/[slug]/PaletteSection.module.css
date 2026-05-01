@@ -137,6 +137,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .chip {
+    transition: none;
+  }
   .check,
   .check path,
   .hexValue,
@@ -160,12 +163,6 @@
 @media (min-width: 1024px) {
   .chip {
     aspect-ratio: 1 / 1;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .chip {
-    transition: none;
   }
 }
 

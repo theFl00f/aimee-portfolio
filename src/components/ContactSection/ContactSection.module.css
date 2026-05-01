@@ -137,3 +137,10 @@
   .heading { font-size: 24px; }
   .invite { font-size: 17px; }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .cta,
+  .ctaArrow {
+    transition: none;
+  }
+}

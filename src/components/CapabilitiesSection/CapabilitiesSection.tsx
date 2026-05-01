@@ -1,5 +1,5 @@
 'use client';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import styles from './CapabilitiesSection.module.css';
 
 const CAPABILITIES = [
@@ -41,21 +41,25 @@ const containerVariants = {
 };
 
 export default function CapabilitiesSection() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <section id="capabilities" aria-label="Capabilities and strategic strengths" className={styles.capabilities}>
       <motion.p
         className={styles.sectionMark}
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+        {...(shouldReduceMotion
+          ? { animate: { opacity: 1 } }
+          : { whileInView: { opacity: 1 }, viewport: { once: true } })}
+        transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
       >03 / about</motion.p>
       <motion.div
         className={styles.grid}
         variants={containerVariants}
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-60px' }}
+        {...(shouldReduceMotion
+          ? { animate: 'visible' }
+          : { whileInView: 'visible', viewport: { once: true, margin: '-60px' } })}
       >
         <motion.div variants={colVariants}>
           <h2 className={styles.heading}>capabilities</h2>
