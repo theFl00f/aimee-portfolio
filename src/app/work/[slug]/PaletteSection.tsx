@@ -22,7 +22,8 @@ export default function PaletteSection({ palette }: { palette: PaletteChip[] }) 
   };
 
   return (
-    <section className={styles.paletteSection} aria-label="Brand palette">
+    <section className={styles.paletteSection} aria-labelledby="palette-heading">
+      <h2 id="palette-heading" className="visually-hidden">Palette</h2>
       <div className={styles.grid}>
         {palette.map(({ hex, name, textLight }) => {
           const isCopied = copied === hex;
