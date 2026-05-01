@@ -77,17 +77,19 @@ export default function WorkGrid() {
       <motion.p
         className={styles.sectionMark}
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, ease }}
+        {...(reduced
+          ? { animate: { opacity: 1 } }
+          : { whileInView: { opacity: 1 }, viewport: { once: true } })}
+        transition={reduced ? { duration: 0 } : { duration: 0.6, ease }}
       >01 / work</motion.p>
 
       <motion.div className={styles.grid} style={wrapperStyle}>
         <motion.div
           className={styles.rowTop}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-40px' }}
+          {...(reduced
+            ? { animate: 'visible' }
+            : { whileInView: 'visible', viewport: { once: true, margin: '-40px' } })}
           variants={rowVariants}
         >
           <Cell variant="wide-landscape" item={marginalia} reduced={reduced} />
@@ -97,8 +99,9 @@ export default function WorkGrid() {
         <motion.div
           className={styles.rowBottom}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-40px' }}
+          {...(reduced
+            ? { animate: 'visible' }
+            : { whileInView: 'visible', viewport: { once: true, margin: '-40px' } })}
           variants={rowVariants}
         >
           <Cell variant="portrait" reduced={reduced} />

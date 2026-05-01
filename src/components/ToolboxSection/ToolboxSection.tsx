@@ -1,5 +1,5 @@
 'use client';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import Picture from '@/components/Picture';
 import styles from './ToolboxSection.module.css';
 
@@ -70,22 +70,26 @@ const rowVariants = {
 };
 
 export default function ToolboxSection() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <section id="toolbox" aria-labelledby="toolbox-heading" className={styles.toolbox}>
       <motion.p
         className={styles.sectionMark}
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+        {...(shouldReduceMotion
+          ? { animate: { opacity: 1 } }
+          : { whileInView: { opacity: 1 }, viewport: { once: true } })}
+        transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
       >02 / approach</motion.p>
       <h2 id="toolbox-heading" className={styles.heading}>approach + toolbox</h2>
       <motion.div
         className={styles.table}
         variants={containerVariants}
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-60px' }}
+        {...(shouldReduceMotion
+          ? { animate: 'visible' }
+          : { whileInView: 'visible', viewport: { once: true, margin: '-60px' } })}
       >
         {CARDS.map((card) => (
           <motion.div key={card.title[0]} className={styles.row} variants={rowVariants}>

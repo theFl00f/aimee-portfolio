@@ -1,5 +1,5 @@
 'use client';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import LinkedInIcon from '@/components/icons/LinkedInIcon';
 import Picture from '@/components/Picture';
 import styles from './ContactSection.module.css';
@@ -22,22 +22,26 @@ const portraitVariants = {
 };
 
 export default function ContactSection() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <section id="contact" aria-labelledby="contact-heading" className={styles.contact}>
       <motion.p
         className={styles.sectionMark}
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, ease }}
+        {...(shouldReduceMotion
+          ? { animate: { opacity: 1 } }
+          : { whileInView: { opacity: 1 }, viewport: { once: true } })}
+        transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.6, ease }}
       >04 / contact</motion.p>
 
       <motion.div
         className={styles.layout}
         variants={containerVariants}
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-60px' }}
+        {...(shouldReduceMotion
+          ? { animate: 'visible' }
+          : { whileInView: 'visible', viewport: { once: true, margin: '-60px' } })}
       >
         <div className={styles.body}>
           <motion.h2 id="contact-heading" className={styles.heading} variants={itemVariants}>
