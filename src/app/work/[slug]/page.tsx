@@ -147,7 +147,8 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
       </FadeUp>
 
       <FadeUp delay={0.05}>
-        <section className={styles.closing} aria-label="Continue browsing">
+        <section className={styles.closing} aria-labelledby="more-work-heading">
+          <h2 id="more-work-heading" className="visually-hidden">More work</h2>
           <p aria-hidden="true" className={styles.closingMark}>more work</p>
           <div className={styles.closingGrid}>
             <Link

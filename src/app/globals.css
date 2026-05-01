@@ -60,6 +60,9 @@ ul { list-style: disc; padding-left: 1.25em; }
   left: 0;
   transform: translateY(-100%);
   z-index: 200;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   background: var(--color-page);
   color: var(--color-ink);
   border-bottom: 1px solid var(--color-ink);
