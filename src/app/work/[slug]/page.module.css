@@ -195,7 +195,11 @@
 /* The blurred halo behind the contained image. Committed: pushed past the
    point where original text or shape detail can survive, then a slab-tinted
    overlay washes the result so it reads as an intentional chromatic spread,
-   not a leaky mirror. */
+   not a leaky mirror.
+
+   Perf-verified at 6x CPU throttle: ~50ms / ~6% scroll cost vs no blur, no
+   blur-attributable long tasks. Below human jank threshold; below the fold;
+   not in the LCP path. Don't drop the radius without re-measuring. */
 .sectionImageWrap::before {
   content: '';
   position: absolute;

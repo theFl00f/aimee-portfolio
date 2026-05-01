@@ -22,7 +22,8 @@ export default function PaletteSection({ palette }: { palette: PaletteChip[] }) 
   };
 
   return (
-    <section className={styles.paletteSection} aria-label="Brand palette">
+    <section className={styles.paletteSection} aria-labelledby="palette-heading">
+      <h2 id="palette-heading" className="visually-hidden">Palette</h2>
       <div className={styles.grid}>
         {palette.map(({ hex, name, textLight }) => {
           const isCopied = copied === hex;
@@ -33,7 +34,7 @@ export default function PaletteSection({ palette }: { palette: PaletteChip[] }) 
               onClick={() => handleCopy(hex, name)}
               className={`${styles.chip} ${textLight ? styles.textLight : styles.textDark} ${isCopied ? styles.copied : ''}`}
               style={{ background: hex }}
-              aria-label={`Copy ${name ? name + ' ' : ''}${hex} to clipboard`}
+              aria-label={`Copy ${name ?? hex} to clipboard`}
             >
               {name && <span className={styles.name}>{name}</span>}
               <span className={styles.hex} aria-hidden="true">

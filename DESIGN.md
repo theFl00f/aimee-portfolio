@@ -5,6 +5,7 @@ colors:
   ink: "oklch(8% 0.008 40)"
   ink-muted: "oklch(42% 0.008 40)"
   page: "oklch(97% 0.008 80)"
+  page-muted: "oklch(65% 0.008 80)"
   ash: "oklch(91% 0.007 75)"
 typography:
   display:
@@ -108,7 +109,8 @@ All neutrals are tinted toward warm hues, never pure `#000` or `#fff`. OKLCH is 
 - **Ink** (`oklch(8% 0.008 40)`, fallback `#030101`): all primary text, all borders, all structural lines. Near-black with a barely perceptible warm-brown undertone, the temperature of old printing ink rather than a digital void.
 
 ### Secondary
-- **Ink Muted** (`oklch(42% 0.008 40)`, fallback `#595551`): secondary text only — section marks, marginalia kickers, image captions, toolbox row descriptions, hero subtitle. Authored to clear WCAG AA on Page (7.77:1, approaches AAA) and on Ash (6.49:1). Replaces the previous opacity-as-color pattern, which compounded unpredictably and failed contrast at small sizes.
+- **Ink Muted** (`oklch(42% 0.008 40)`, fallback `#595551`): secondary text on Page or Ash surfaces only — section marks, marginalia kickers, image captions, toolbox row descriptions, hero subtitle. Authored to clear WCAG AA on Page (7.77:1, approaches AAA) and on Ash (6.49:1). Replaces the previous opacity-as-color pattern, which compounded unpredictably and failed contrast at small sizes.
+- **Page Muted** (`oklch(65% 0.008 80)`, fallback `#9a9794`): secondary text on Ink surfaces only — case-study intro slab labels (`01 / overview`), category lists, any micro-text reversed onto a dark slab. Mirrors Ink Muted symmetrically (65% vs 42% lightness) and clears WCAG AA (~7:1) against Ink at the same micro-label sizes. Use this token, not Ink Muted, the moment a slab flips to Ink — the same opacity-as-color failure mode applies in reverse.
 
 ### Neutral
 - **Page** (`oklch(97% 0.008 80)`, fallback `#f8f5ef`): all surfaces and backgrounds. Near-white with a faint cream warmth, the temperature of uncoated stock, not a monitor's backlight.
@@ -129,6 +131,8 @@ Currently in use on `[slug]/page.module.css`: `--color-outcome-bg` (62% Ash) and
 **The OKLCH-First Rule.** Color tokens are authored in OKLCH and gated behind `@supports (color: oklch(0% 0 0))` in `globals.css`. Hex fallbacks (computed sRGB equivalents) sit at the top of the cascade so legacy browsers degrade gracefully. When introducing a new color, author the OKLCH value first and compute the hex fallback, never the reverse.
 
 **The Color-Not-Opacity Rule.** Secondary emphasis is carried by the Ink Muted token, never by `opacity: 0.55` on Ink. Opacity-as-mute compounds unpredictably (a 0.55 element inside an animated container loses contrast further), and fails AA below 16px. If something needs to read quieter, change the color, not the alpha.
+
+**The Muted-Pairing Rule.** Muted text takes the surface it sits on. Use **Ink Muted** for secondary text on Page or Ash; use **Page Muted** for secondary text on Ink. Crossing these (Ink Muted on a dark slab, Page Muted on a light surface) collapses contrast and breaks the editorial-print read. The pairing is mechanical: identify the surface first, then pick the token.
 
 ## 3. Typography
 
@@ -201,6 +205,15 @@ This is the editorial signature. Where a SaaS portfolio would put a title pill o
 
 ### Section Mark
 Numbered section identifiers — `01 / work`, `02 / approach + toolbox`, `04 / contact`. Same Label micro typography as marginalia; same Ink Muted color. Sits at the top of every section as the only structural signal that you've moved between chapters.
+
+### Named Rules
+
+**The Chapter-vs-Paratext Rule.** A case-study page distinguishes two kinds of content blocks, and the typography reflects the distinction:
+
+- **Chapters** carry a numbered Section Mark (`01 / overview`, `02 / outcome`, `03 / reflections`). The number signals narrative position: "you're at this stage of the project's argument." Reserve numbering for the case study's editorial spine.
+- **Paratext** sits between chapters and supports them — image galleries, palette swatches, wide brand-collateral spreads. Paratext takes no visible mark, only a `visually-hidden` h2 carrying the accessible name (`<h2 className="visually-hidden">Palette</h2>`). It registers visually as content, not as a chapter.
+
+The rule is mechanical: if a block is part of the narrative argument, number it; if it shows or interacts with the work without advancing the argument, leave it unnumbered. The closing prev/next nav is the one exception — labeled (`more work`) but unnumbered, because it's navigation, not narrative.
 
 ### Work Grid
 Two-row asymmetric layout. Top row `2fr 1fr 1fr` (wide lead, two squares). Bottom row `1fr 1fr 2fr` (two squares, wide trail). 8px gap throughout — compressed adjacency that creates the sense of a curated spread.
