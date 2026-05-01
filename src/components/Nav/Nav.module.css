@@ -33,7 +33,17 @@
   gap: 32px;
 }
 
+/* Hit area is intentionally larger than the type. The 14px label sits in a
+   32px-tall inline-flex box (centered) with 4px horizontal padding, giving
+   a ~32×Wpx target that clears WCAG 2.5.8 AA (24×24) without thickening the
+   visible nav row — the header is 82px tall, so the padded box stays within
+   the existing line. The 32px gap between links survives the +4px each side
+   because the gap is measured between flex items, not their content. */
 .navLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 4px;
   font-size: 14px;
   font-weight: 500;
 }
