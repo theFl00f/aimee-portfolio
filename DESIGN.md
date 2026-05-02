@@ -242,6 +242,20 @@ Hover on the icon link: opacity 0.6. Identical pattern to nav-link hover. One sy
 ### Skip Link
 A keyboard-only "Skip to main content" anchor that is positioned off-screen via `transform: translateY(-100%)` and slides in on `:focus`. Inter 14px / 500, Ink on Page, 1px Ink border-bottom. Not visible to touch or pointer users.
 
+### Brand Palette Chips (case-study paratext)
+A swatch grid surfaced on case-study pages that carry a `brandPalette`. Each chip is a `<button>` that copies the hex on click, with a checkmark + "Copied" overlay confirmation. Border `1px solid var(--color-ink)`, no radius. Layout: 5-column grid on desktop (`aspect-ratio: 1/1`), 5-column on tablet (`3/4`), and a single-column stack of paint-chip bands at ≤480px so longer names like "Parchment Light" keep one line.
+
+The chip surface is the brand's own color, not a system token: this is the one place in the design system where saturated client-brand color is allowed onto the page. The chips function as paratext, not chrome — they show the work, they aren't part of it.
+
+**Brand-Fidelity Contrast Exception.** Chip text (15px Source Serif 4 / 600 name + 10px Inter / 600 hex) sits directly on the brand surface color. Most surfaces clear WCAG AA comfortably; the case study can include one chip whose text contrast lands at the AA floor (≥4.5:1) without exceeding it. Marginalia's **Seal Wax** (`#DA2127`) at ~4.57:1 is the canonical example.
+
+This exception is intentional and bounded:
+
+1. **The hex is sacrosanct.** Brand palettes are documentary — they record what was actually shipped to the client. Shifting Seal Wax darker to clear AA more comfortably would falsify the record.
+2. **Mitigations are mechanical.** On any `textLight` chip, the hex micro-label is bumped to weight 600 (`PaletteSection.module.css`), adding pixel mass at 10px without touching the surface color. Chip name remains at 15px / 600 / Source Serif 4 — large enough that the AA floor at this ratio is acceptable for short labels.
+3. **Floor, not target.** Chips below 4.5:1 are not allowed. If a future case study introduces a brand color that falls below AA, the chip drops the hex/name overlay (image-only swatch) and the value moves to a caption beneath the grid. Don't lift opacity; don't introduce a scrim; don't tint the brand color.
+4. **Scope is the chip only.** This exception does not extend to any other UI surface. Body text, labels, nav, and section marks all hold to the standard contrast tokens (Ink / Page / Ink Muted / Page Muted), which clear AA cleanly across the design system.
+
 ## 6. Do's and Don'ts
 
 ### Do:
