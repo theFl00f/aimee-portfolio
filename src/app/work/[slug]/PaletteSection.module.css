@@ -38,6 +38,16 @@
   transform: translateY(-4px);
 }
 
+/* Dark chips flip the border to Page so the structural edge doesn't dissolve
+   into the surface. On Midnight Notes (#29333E) the default Ink border lands
+   at ~3:1 contrast against the chip and effectively vanishes; the Page border
+   pushes that to ~12:1. The `textLight` flag already discriminates dark vs.
+   light surfaces for text color, so it's the natural carrier for the border
+   tone too — same mechanical decision, two visible properties. */
+.textLight {
+  border-color: var(--color-page);
+}
+
 .textLight .name,
 .textLight .hex {
   color: var(--color-page);

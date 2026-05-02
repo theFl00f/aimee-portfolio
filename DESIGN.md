@@ -243,7 +243,7 @@ Hover on the icon link: opacity 0.6. Identical pattern to nav-link hover. One sy
 A keyboard-only "Skip to main content" anchor that is positioned off-screen via `transform: translateY(-100%)` and slides in on `:focus`. Inter 14px / 500, Ink on Page, 1px Ink border-bottom. Not visible to touch or pointer users.
 
 ### Brand Palette Chips (case-study paratext)
-A swatch grid surfaced on case-study pages that carry a `brandPalette`. Each chip is a `<button>` that copies the hex on click, with a checkmark + "Copied" overlay confirmation. Border `1px solid var(--color-ink)`, no radius. Layout: 5-column grid on desktop (`aspect-ratio: 1/1`), 5-column on tablet (`3/4`), and a single-column stack of paint-chip bands at ≤480px so longer names like "Parchment Light" keep one line.
+A swatch grid surfaced on case-study pages that carry a `brandPalette`. Each chip is a `<button>` that copies the hex on click, with a checkmark + "Copied" overlay confirmation. Border `1px solid`, no radius; tone follows the `textLight` flag — light chips take an Ink border, dark chips (`textLight: true`) flip to a Page border so the structural edge stays legible against saturated dark surfaces. Layout: 5-column grid on desktop (`aspect-ratio: 1/1`), 5-column on tablet (`3/4`), and a single-column stack of paint-chip bands at ≤480px so longer names like "Parchment Light" keep one line.
 
 The chip surface is the brand's own color, not a system token: this is the one place in the design system where saturated client-brand color is allowed onto the page. The chips function as paratext, not chrome — they show the work, they aren't part of it.
 
