@@ -38,15 +38,26 @@
   transform: translateY(-4px);
 }
 
+/* Dark chips flip the border to Page so the structural edge doesn't dissolve
+   into the surface. On Midnight Notes (#29333E) the default Ink border lands
+   at ~3:1 contrast against the chip and effectively vanishes; the Page border
+   pushes that to ~12:1. The `textLight` flag already discriminates dark vs.
+   light surfaces for text color, so it's the natural carrier for the border
+   tone too — same mechanical decision, two visible properties. */
+.textLight {
+  border-color: var(--color-page);
+}
+
 .textLight .name,
 .textLight .hex {
   color: var(--color-page);
 }
 
-/* Dark chips render light text on saturated brand hues (e.g. Seal Wax at 4.57:1
-   contrast — passes AA but sits near the floor). Bumping the micro-label weight
-   to 600 adds pixel mass at 10px without changing the swatch hex, hardening
-   perceived legibility without touching the brand-faithful surface color. */
+/* Brand-Fidelity Contrast Exception (DESIGN.md §5, Brand Palette Chips).
+   On dark chips, light text on saturated brand hues can land at the WCAG AA
+   floor (e.g. Seal Wax #DA2127 ≈ 4.57:1). Per the documented exception, the
+   hex is sacrosanct; instead, bump the 10px micro-label to 600 weight so it
+   gains pixel mass without touching the surface color. */
 .textLight .hex {
   font-weight: 600;
 }
