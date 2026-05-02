@@ -17,6 +17,13 @@ export interface WorkItem {
   coverPosition?: string;
   heroImage: string;
   heroImageAlt: string;
+  /**
+   * `object-position` for the hero strip when the source image's subject is
+   * off-center. The hero aspect tightens from 6:1 desktop to 2:1 mobile, so
+   * left-aligned crops can lose right-side subjects at narrow breakpoints.
+   * Falls back to the CSS default (`0% 50%`) when omitted.
+   */
+  heroPosition?: string;
   galleryImages: string[];
   galleryImagesAlt: string[];
   wideImages?: string[];
@@ -89,6 +96,7 @@ export const WORK_ITEMS: WorkItem[] = [
     coverImage: "/work/mycelium/mycelium-hero.png",
     coverPosition: "64% 50%",
     heroImage: "/work/mycelium/mycelium-hero.png",
+    heroPosition: "82% 50%",
     heroImageAlt:
       "Verae magazine cover for the Purple Haze issue, featuring fungi-inspired fashion editorial photography",
     galleryImages: [],
