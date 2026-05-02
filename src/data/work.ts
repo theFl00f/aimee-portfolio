@@ -153,6 +153,18 @@ export const WORK_ITEMS: WorkItem[] = [
     reflectionsImage: "/work/sap-gpo-hall-of-fame/celebration.png",
     reflectionsImageAlt:
       "SAP Global Partner Organization celebration scene with Hall of Fame award recipients",
+    brandPalette: [
+      { name: "Blue 02", hex: "#d1efff", textLight: false },
+      { name: "Blue 03", hex: "#a6e0ff", textLight: false },
+      { name: "Blue 04", hex: "#89d1ff", textLight: false },
+      { name: "Blue 05", hex: "#4db1ff", textLight: false },
+      { name: "Blue 06", hex: "#1b90ff", textLight: false },
+      { name: "Blue 07", hex: "#0070f2", textLight: true },
+      { name: "Blue 08", hex: "#0057d2", textLight: true },
+      { name: "Blue 09", hex: "#0040b0", textLight: true },
+      { name: "Blue 10", hex: "#002ab6", textLight: true },
+      { name: "Blue 11", hex: "#00144a", textLight: true },
+    ],
     variant: "square",
   },
 ];
