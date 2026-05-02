@@ -43,6 +43,7 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
           fill
           sizes="(max-width: 479px) calc(100vw - 32px), (max-width: 1023px) calc(100vw - 48px), calc(100vw - 240px)"
           className={styles.heroImg}
+          objectPosition={item.heroPosition}
           placeholder="blur"
           priority
         />

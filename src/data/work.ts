@@ -17,6 +17,13 @@ export interface WorkItem {
   coverPosition?: string;
   heroImage: string;
   heroImageAlt: string;
+  /**
+   * `object-position` for the hero strip when the source image's subject is
+   * off-center. The hero aspect tightens from 6:1 desktop to 2:1 mobile, so
+   * left-aligned crops can lose right-side subjects at narrow breakpoints.
+   * Falls back to the CSS default (`0% 50%`) when omitted.
+   */
+  heroPosition?: string;
   galleryImages: string[];
   galleryImagesAlt: string[];
   wideImages?: string[];
@@ -85,10 +92,11 @@ export const WORK_ITEMS: WorkItem[] = [
     outcome:
       "The project expanded beyond a single article to encompass a complete magazine system: cover, table of contents, and editorial features. Conceived as a forward-looking fashion editorial for portfolio presentation, it demonstrates the ability to move between conceptual art direction, typography, and image-making, while simulating the look and feel of a production-ready publication.",
     reflections:
-      "This project became an experiment in human–AI collaboration. From brainstorming editorial concepts to developing prompts, iterating visuals, and shaping the final layouts, AI acted as a creative partner. Working with limited external feedback, I relied on this interaction to simulate the push-and-pull of a design process: testing ideas, refining direction, and challenging my own instincts. The experience highlighted both the potential of AI as a generative tool and the importance of art direction in guiding it toward a coherent, production-ready outcome.",
+      "This project became an experiment in human and AI collaboration. From brainstorming editorial concepts to developing prompts, iterating visuals, and shaping the final layouts, AI acted as a creative partner. Working with limited external feedback, I relied on this interaction to simulate the push-and-pull of a design process: testing ideas, refining direction, and challenging my own instincts. The experience highlighted both the potential of AI as a generative tool and the importance of art direction in guiding it toward a coherent, production-ready outcome.",
     coverImage: "/work/mycelium/mycelium-hero.png",
     coverPosition: "64% 50%",
     heroImage: "/work/mycelium/mycelium-hero.png",
+    heroPosition: "82% 50%",
     heroImageAlt:
       "Verae magazine cover for the Purple Haze issue, featuring fungi-inspired fashion editorial photography",
     galleryImages: [],
